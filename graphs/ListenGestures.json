@@ -1,0 +1,941 @@
+{
+  "properties": {
+    "environment": {
+      "runtime": "html",
+      "src": "./preview/iframe.html",
+      "width": "300",
+      "height": "300",
+      "content": "<div class=\"graph\">\n  <div class=\"node\"><h1>Hello</h1></div>\n  <div class=\"node\"><h1>World</h1></div>  \n</div>\n<style>\nbody {\n  height: 1000px;\n  width: 1000px;\n}\n.graph {\n  height: 100%;\n  width: 100%;\n}\n.node {\n  width: 75px;\n  height: 75px;\n  color: #ffffff;\n  background-color: #000000;\n  border-radius: 10px;\n}\n.node h1 {\n  font-size: 12px;\n  text-align: center;\n}\n</style>"
+    },
+    "name": "ListenGestures"
+  },
+  "exports": [
+    {
+      "private": "distance_kwk39.out",
+      "public": "distance"
+    },
+    {
+      "private": "gestureelements_yvm9m.out",
+      "public": "elements"
+    },
+    {
+      "private": "angle_43qpo.out",
+      "public": "angle"
+    },
+    {
+      "private": "speed_e99jq.in",
+      "public": "speed"
+    },
+    {
+      "private": "getstartelement_w7m64.out",
+      "public": "start"
+    }
+  ],
+  "processes": {
+    "ListenPointer_vkvx5": {
+      "component": "interaction/ListenPointer",
+      "metadata": {
+        "x": 210,
+        "y": 6,
+        "label": "ListenPointer"
+      }
+    },
+    "TrackMoveDuringGesture_5zitk": {
+      "component": "flow/Gate",
+      "metadata": {
+        "x": 464,
+        "y": 142,
+        "label": "TrackMoveDuringGesture"
+      }
+    },
+    "GestureStart_r8vr5": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 466,
+        "y": -31,
+        "label": "GestureStart"
+      }
+    },
+    "GestureEnd_qmbj1": {
+      "component": "core/Merge",
+      "metadata": {
+        "x": 452,
+        "y": 395.5,
+        "label": "GestureEnd"
+      }
+    },
+    "GetStartingPoint_pidfs": {
+      "component": "interaction/ReadCoordinates",
+      "metadata": {
+        "x": 765,
+        "y": -191,
+        "label": "GetStartingPoint"
+      }
+    },
+    "GetEndingPoint_4sogu": {
+      "component": "interaction/ReadCoordinates",
+      "metadata": {
+        "x": 1368,
+        "y": 136,
+        "label": "GetEndingPoint"
+      }
+    },
+    "core/Split_baeeb": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 1563,
+        "y": 137,
+        "label": "core/Split"
+      }
+    },
+    "core/Split_4ds1h": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 973,
+        "y": -191,
+        "label": "core/Split"
+      }
+    },
+    "GestureAngle_dwjj": {
+      "component": "math/CalculateAngle",
+      "metadata": {
+        "x": 1939,
+        "y": -127,
+        "label": "GestureAngle"
+      }
+    },
+    "GestureDistance_esqkc": {
+      "component": "math/CalculateDistance",
+      "metadata": {
+        "x": 1934,
+        "y": 20,
+        "label": "GestureDistance"
+      }
+    },
+    "LastMove_p5yj7": {
+      "component": "core/Kick",
+      "metadata": {
+        "x": 1056,
+        "y": 140,
+        "label": "LastMove"
+      }
+    },
+    "GestureEnd_qqx8o": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 876,
+        "y": 380,
+        "label": "GestureEnd"
+      }
+    },
+    "GestureMove_hy46s": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 686,
+        "y": 142,
+        "label": "GestureMove"
+      }
+    },
+    "AllTouchedElements_i3x74": {
+      "component": "packets/UniquePacket",
+      "metadata": {
+        "x": 1364,
+        "y": 291,
+        "label": "AllTouchedElements"
+      }
+    },
+    "objects/GetObjectKey_k1ap5": {
+      "component": "objects/GetObjectKey",
+      "metadata": {
+        "x": 1168,
+        "y": 286,
+        "label": "objects/GetObjectKey"
+      }
+    },
+    "GetStartElement_w7m64": {
+      "component": "objects/GetObjectKey",
+      "metadata": {
+        "x": 769,
+        "y": -44.66666666666666,
+        "label": "GetStartElement"
+      }
+    },
+    "GetGestureArea_h4opr": {
+      "component": "dom/GetElement",
+      "metadata": {
+        "x": -32,
+        "y": 7,
+        "label": "GetGestureArea"
+      }
+    },
+    "EndDate_hx6m9": {
+      "component": "objects/CreateDate",
+      "metadata": {
+        "x": 2154,
+        "y": 164,
+        "label": "EndDate"
+      }
+    },
+    "StartDate_swbwu": {
+      "component": "objects/CreateDate",
+      "metadata": {
+        "x": 1936,
+        "y": -271,
+        "label": "StartDate"
+      }
+    },
+    "math/Subtract_j5v20": {
+      "component": "math/Subtract",
+      "metadata": {
+        "x": 2516,
+        "y": -193,
+        "label": "math/Subtract"
+      }
+    },
+    "core/Kick_trnc6": {
+      "component": "core/Kick",
+      "metadata": {
+        "x": 1937,
+        "y": 163,
+        "label": "core/Kick"
+      }
+    },
+    "SetStart_ql51c": {
+      "component": "strings/SendString",
+      "metadata": {
+        "x": 768,
+        "y": -310,
+        "label": "SetStart"
+      }
+    },
+    "PreventDuplicateEndings_l3qnr": {
+      "component": "flow/Gate",
+      "metadata": {
+        "x": 669,
+        "y": 381,
+        "label": "PreventDuplicateEndings"
+      }
+    },
+    "math/Divide_x4gc8": {
+      "component": "math/Divide",
+      "metadata": {
+        "x": 2746,
+        "y": -198,
+        "label": "math/Divide"
+      }
+    },
+    "core/Split_ium1q": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 2954,
+        "y": -196,
+        "label": "core/Split"
+      }
+    },
+    "core/Split_x0a12": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 2145,
+        "y": 20,
+        "label": "core/Split"
+      }
+    },
+    "objects/CallMethod_iu7k2": {
+      "component": "objects/CallMethod",
+      "metadata": {
+        "x": 2356,
+        "y": 148,
+        "label": "objects/CallMethod"
+      }
+    },
+    "objects/CallMethod_rtfd2": {
+      "component": "objects/CallMethod",
+      "metadata": {
+        "x": 2138,
+        "y": -295,
+        "label": "objects/CallMethod"
+      }
+    },
+    "Distance_kwk39": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 2343,
+        "y": 18,
+        "label": "Distance"
+      }
+    },
+    "GestureElements_yvm9m": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 1564,
+        "y": 291,
+        "label": "GestureElements"
+      }
+    },
+    "Angle_43qpo": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 2141,
+        "y": -126,
+        "label": "Angle"
+      }
+    },
+    "Speed_e99jq": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 3183,
+        "y": -200,
+        "label": "Speed"
+      }
+    }
+  },
+  "connections": [
+    {
+      "src": {
+        "process": "ListenPointer_vkvx5",
+        "port": "down"
+      },
+      "tgt": {
+        "process": "GestureStart_r8vr5",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GestureStart_r8vr5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "TrackMoveDuringGesture_5zitk",
+        "port": "open"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "ListenPointer_vkvx5",
+        "port": "move"
+      },
+      "tgt": {
+        "process": "TrackMoveDuringGesture_5zitk",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 3
+      }
+    },
+    {
+      "src": {
+        "process": "ListenPointer_vkvx5",
+        "port": "cancel"
+      },
+      "tgt": {
+        "process": "GestureEnd_qmbj1",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 3
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_4ds1h",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GestureAngle_dwjj",
+        "port": "origin"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_baeeb",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GestureAngle_dwjj",
+        "port": "destination"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_4ds1h",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GestureDistance_esqkc",
+        "port": "origin"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_baeeb",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GestureDistance_esqkc",
+        "port": "destination"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GestureEnd_qqx8o",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "TrackMoveDuringGesture_5zitk",
+        "port": "close"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "GestureEnd_qqx8o",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "LastMove_p5yj7",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GetEndingPoint_4sogu",
+        "port": "client"
+      },
+      "tgt": {
+        "process": "core/Split_baeeb",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "TrackMoveDuringGesture_5zitk",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GestureMove_hy46s",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "GestureMove_hy46s",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "LastMove_p5yj7",
+        "port": "data"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "LastMove_p5yj7",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetEndingPoint_4sogu",
+        "port": "event"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GestureMove_hy46s",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "objects/GetObjectKey_k1ap5",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "objects/GetObjectKey_k1ap5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "AllTouchedElements_i3x74",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "GestureEnd_qqx8o",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "AllTouchedElements_i3x74",
+        "port": "clear"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "GetStartingPoint_pidfs",
+        "port": "client"
+      },
+      "tgt": {
+        "process": "core/Split_4ds1h",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GestureStart_r8vr5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetStartElement_w7m64",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GetGestureArea_h4opr",
+        "port": "element"
+      },
+      "tgt": {
+        "process": "ListenPointer_vkvx5",
+        "port": "element"
+      },
+      "metadata": {
+        "route": 3
+      }
+    },
+    {
+      "src": {
+        "process": "ListenPointer_vkvx5",
+        "port": "leave"
+      },
+      "tgt": {
+        "process": "GestureEnd_qmbj1",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 3
+      }
+    },
+    {
+      "src": {
+        "process": "ListenPointer_vkvx5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GestureEnd_qmbj1",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 3
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_baeeb",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "core/Kick_trnc6",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "core/Kick_trnc6",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "EndDate_hx6m9",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GestureStart_r8vr5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SetStart_ql51c",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "SetStart_ql51c",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "StartDate_swbwu",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "PreventDuplicateEndings_l3qnr",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GestureEnd_qqx8o",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GestureEnd_qmbj1",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "PreventDuplicateEndings_l3qnr",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GestureStart_r8vr5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "PreventDuplicateEndings_l3qnr",
+        "port": "open"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "GestureEnd_qqx8o",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "PreventDuplicateEndings_l3qnr",
+        "port": "close"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "math/Divide_x4gc8",
+        "port": "quotient"
+      },
+      "tgt": {
+        "process": "core/Split_ium1q",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_ium1q",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "math/Divide_x4gc8",
+        "port": "clear"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "GestureDistance_esqkc",
+        "port": "distance"
+      },
+      "tgt": {
+        "process": "core/Split_x0a12",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 8
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_x0a12",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "math/Divide_x4gc8",
+        "port": "dividend"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "ListenPointer_vkvx5",
+        "port": "up"
+      },
+      "tgt": {
+        "process": "GestureEnd_qmbj1",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GestureStart_r8vr5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetStartingPoint_pidfs",
+        "port": "event"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "math/Subtract_j5v20",
+        "port": "difference"
+      },
+      "tgt": {
+        "process": "math/Divide_x4gc8",
+        "port": "divisor"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_ium1q",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "math/Subtract_j5v20",
+        "port": "clear"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "objects/CallMethod_iu7k2",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "math/Subtract_j5v20",
+        "port": "minuend"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "EndDate_hx6m9",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "objects/CallMethod_iu7k2",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "objects/CallMethod_rtfd2",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "math/Subtract_j5v20",
+        "port": "subtrahend"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "StartDate_swbwu",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "objects/CallMethod_rtfd2",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_x0a12",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Distance_kwk39",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "AllTouchedElements_i3x74",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GestureElements_yvm9m",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "GestureAngle_dwjj",
+        "port": "angle"
+      },
+      "tgt": {
+        "process": "Angle_43qpo",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_ium1q",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Speed_e99jq",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "data": "target",
+      "tgt": {
+        "process": "objects/GetObjectKey_k1ap5",
+        "port": "key"
+      }
+    },
+    {
+      "data": "target",
+      "tgt": {
+        "process": "GetStartElement_w7m64",
+        "port": "key"
+      }
+    },
+    {
+      "data": "body",
+      "tgt": {
+        "process": "GetGestureArea_h4opr",
+        "port": "selector"
+      }
+    },
+    {
+      "data": "now",
+      "tgt": {
+        "process": "core/Kick_trnc6",
+        "port": "data"
+      }
+    },
+    {
+      "data": "now",
+      "tgt": {
+        "process": "SetStart_ql51c",
+        "port": "string"
+      }
+    },
+    {
+      "data": "getTime",
+      "tgt": {
+        "process": "objects/CallMethod_iu7k2",
+        "port": "method"
+      }
+    },
+    {
+      "data": "getTime",
+      "tgt": {
+        "process": "objects/CallMethod_rtfd2",
+        "port": "method"
+      }
+    }
+  ]
+}

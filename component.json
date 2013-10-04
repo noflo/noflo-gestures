@@ -1,0 +1,33 @@
+{
+  "name": "noflo-gestures",
+  "description": "Gesture recognition components for NoFlo",
+  "author": "Henri Bergius <henri.bergius@iki.fi>",
+  "repo": "noflo/noflo-gestures",
+  "version": "0.1.0",
+  "keywords": [
+  ],
+  "dependencies": {
+    "noflo/noflo": "*",
+    "noflo/noflo-interaction": "*",
+    "noflo/noflo-math": "*",
+    "noflo/noflo-flow": "*",
+    "noflo/noflo-packets": "*",
+    "noflo/noflo-objects": "*",
+    "noflo/noflo-dom": "*",
+    "noflo/noflo-strings": "*",
+    "noflo/noflo-core": "*"
+  },
+  "scripts": [
+    "graphs/ListenGestures.json",
+    "index.js"
+  ],
+  "json": [
+    "graphs/ListenGestures.json",
+    "component.json"
+  ],
+  "noflo": {
+    "graphs": {
+      "ListenGestures": "graphs/ListenGestures.json"
+    }
+  }
+}

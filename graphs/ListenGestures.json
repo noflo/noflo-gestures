@@ -1,12 +1,5 @@
 {
   "properties": {
-    "environment": {
-      "runtime": "html",
-      "src": "./preview/iframe.html",
-      "width": "300",
-      "height": "300",
-      "content": "<div class=\"graph\">\n  <div class=\"node\"><h1>Hello</h1></div>\n  <div class=\"node\"><h1>World</h1></div>  \n</div>\n<style>\nbody {\n  height: 1000px;\n  width: 1000px;\n}\n.graph {\n  height: 100%;\n  width: 100%;\n}\n.node {\n  width: 75px;\n  height: 75px;\n  color: #ffffff;\n  background-color: #000000;\n  border-radius: 10px;\n}\n.node h1 {\n  font-size: 12px;\n  text-align: center;\n}\n</style>"
-    },
     "name": "ListenGestures"
   },
   "exports": [

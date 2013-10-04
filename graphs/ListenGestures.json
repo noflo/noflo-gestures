@@ -11,6 +11,10 @@
   },
   "exports": [
     {
+      "private": "getgesturearea_h4opr.selector",
+      "public": "selector"
+    },
+    {
       "private": "distance_kwk39.out",
       "public": "distance"
     },
@@ -900,13 +904,6 @@
       "tgt": {
         "process": "GetStartElement_w7m64",
         "port": "key"
-      }
-    },
-    {
-      "data": "body",
-      "tgt": {
-        "process": "GetGestureArea_h4opr",
-        "port": "selector"
       }
     },
     {

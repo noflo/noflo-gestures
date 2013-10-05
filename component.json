@@ -18,6 +18,7 @@
     "noflo/noflo-core": "*"
   },
   "scripts": [
+    "components/DegreesToCompass.coffee",
     "graphs/ListenGestures.json",
     "graphs/ListenSwipe.json",
     "index.js"
@@ -28,6 +29,9 @@
     "component.json"
   ],
   "noflo": {
+    "components": {
+      "DegreesToCompass": "components/DegreesToCompass.coffee"
+    },
     "graphs": {
       "ListenGestures": "graphs/ListenGestures.json",
       "ListenSwipe": "graphs/ListenSwipe.json"

@@ -1,0 +1,283 @@
+{
+  "properties": {
+    "name": "ListenSwipe"
+  },
+  "exports": [
+    {
+      "private": "Listen_w7p7a.selector",
+      "public": "selector"
+    },
+    {
+      "private": "TouchedElements_5mv0.out",
+      "public": "elements"
+    },
+    {
+      "private": "StartElement_v6fcf.out",
+      "public": "start"
+    },
+    {
+      "private": "Angle_xtmlw.out",
+      "public": "angle"
+    }
+  ],
+  "processes": {
+    "Listen_w7p7a": {
+      "component": "gestures/ListenGestures",
+      "metadata": {
+        "x": 407,
+        "y": 83,
+        "label": "Listen"
+      }
+    },
+    "StartElement_v6fcf": {
+      "component": "core/Kick",
+      "metadata": {
+        "x": 1852,
+        "y": -38,
+        "label": "StartElement"
+      }
+    },
+    "Angle_xtmlw": {
+      "component": "core/Kick",
+      "metadata": {
+        "x": 1851,
+        "y": -136,
+        "label": "Angle"
+      }
+    },
+    "math/Compare_q293g": {
+      "component": "math/Compare",
+      "metadata": {
+        "x": 1170,
+        "y": 208,
+        "label": "math/Compare"
+      }
+    },
+    "math/Compare_lmqjs": {
+      "component": "math/Compare",
+      "metadata": {
+        "x": 714,
+        "y": 263,
+        "label": "math/Compare"
+      }
+    },
+    "TouchedElements_5mv0": {
+      "component": "core/Kick",
+      "metadata": {
+        "x": 1852,
+        "y": 56,
+        "label": "TouchedElements"
+      }
+    },
+    "packets/LastPacket_6zpy3": {
+      "component": "packets/LastPacket",
+      "metadata": {
+        "x": 1375.6666666666665,
+        "y": 206,
+        "label": "packets/LastPacket"
+      }
+    },
+    "core/Split_b39r4": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 1585.6666666666665,
+        "y": 203,
+        "label": "core/Split"
+      }
+    },
+    "core/Kick_6g0q": {
+      "component": "core/Kick",
+      "metadata": {
+        "x": 951,
+        "y": 206,
+        "label": "core/Kick"
+      }
+    }
+  },
+  "connections": [
+    {
+      "src": {
+        "process": "Listen_w7p7a",
+        "port": "start"
+      },
+      "tgt": {
+        "process": "StartElement_v6fcf",
+        "port": "data"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "Listen_w7p7a",
+        "port": "angle"
+      },
+      "tgt": {
+        "process": "Angle_xtmlw",
+        "port": "data"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "Listen_w7p7a",
+        "port": "speed"
+      },
+      "tgt": {
+        "process": "math/Compare_lmqjs",
+        "port": "value"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "Listen_w7p7a",
+        "port": "elements"
+      },
+      "tgt": {
+        "process": "TouchedElements_5mv0",
+        "port": "data"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "packets/LastPacket_6zpy3",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "core/Split_b39r4",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_b39r4",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "TouchedElements_5mv0",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_b39r4",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Angle_xtmlw",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_b39r4",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "StartElement_v6fcf",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "math/Compare_lmqjs",
+        "port": "pass"
+      },
+      "tgt": {
+        "process": "core/Kick_6g0q",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "Listen_w7p7a",
+        "port": "distance"
+      },
+      "tgt": {
+        "process": "core/Kick_6g0q",
+        "port": "data"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "core/Kick_6g0q",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "math/Compare_q293g",
+        "port": "value"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "math/Compare_q293g",
+        "port": "pass"
+      },
+      "tgt": {
+        "process": "packets/LastPacket_6zpy3",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "data": ">=",
+      "tgt": {
+        "process": "math/Compare_q293g",
+        "port": "operator"
+      }
+    },
+    {
+      "data": 50,
+      "tgt": {
+        "process": "math/Compare_q293g",
+        "port": "comparison"
+      }
+    },
+    {
+      "data": 0.5,
+      "tgt": {
+        "process": "math/Compare_lmqjs",
+        "port": "comparison"
+      }
+    },
+    {
+      "data": ">=",
+      "tgt": {
+        "process": "math/Compare_lmqjs",
+        "port": "operator"
+      }
+    }
+  ]
+}

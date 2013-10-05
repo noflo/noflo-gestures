@@ -19,15 +19,18 @@
   },
   "scripts": [
     "graphs/ListenGestures.json",
+    "graphs/ListenSwipe.json",
     "index.js"
   ],
   "json": [
     "graphs/ListenGestures.json",
+    "graphs/ListenSwipe.json",
     "component.json"
   ],
   "noflo": {
     "graphs": {
-      "ListenGestures": "graphs/ListenGestures.json"
+      "ListenGestures": "graphs/ListenGestures.json",
+      "ListenSwipe": "graphs/ListenSwipe.json"
     }
   }
 }

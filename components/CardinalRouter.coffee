@@ -28,4 +28,4 @@ class CardinalRouter extends noflo.Component
       @outPorts[heading].send degrees
       @outPorts[heading].disconnect()
 
-exports.getComponent = -> new CardinarlRouter
+exports.getComponent = -> new CardinalRouter

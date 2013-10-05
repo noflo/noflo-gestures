@@ -26,6 +26,14 @@
     {
       "private": "getstartelement_w7m64.out",
       "public": "start"
+    },
+    {
+      "private": "startpoint_u8int.out",
+      "public": "startpoint"
+    },
+    {
+      "private": "endpoint_m93v2.out",
+      "public": "endpoint"
     }
   ],
   "processes": {
@@ -283,6 +291,22 @@
         "x": 3183,
         "y": -200,
         "label": "Speed"
+      }
+    },
+    "EndPoint_m93v2": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 1939,
+        "y": 262,
+        "label": "EndPoint"
+      }
+    },
+    "StartPoint_u8int": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 1242,
+        "y": -192,
+        "label": "StartPoint"
       }
     }
   },
@@ -883,6 +907,32 @@
       },
       "metadata": {
         "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_baeeb",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "EndPoint_m93v2",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_4ds1h",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "StartPoint_u8int",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
       }
     },
     {

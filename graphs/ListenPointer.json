@@ -8,6 +8,10 @@
       "public": "element"
     },
     {
+      "private": "Listen_1025g.capture",
+      "public": "capture"
+    },
+    {
       "private": "StartEvent_x8itv.out",
       "public": "start"
     },
@@ -99,19 +103,6 @@
       "src": {
         "process": "Listen_1025g",
         "port": "leave"
-      },
-      "tgt": {
-        "process": "End_vom22",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 1
-      }
-    },
-    {
-      "src": {
-        "process": "Listen_1025g",
-        "port": "out"
       },
       "tgt": {
         "process": "End_vom22",

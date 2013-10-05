@@ -371,6 +371,19 @@
         "port": "out"
       },
       "tgt": {
+        "process": "HoldCoordinates_7cosq",
+        "port": "data"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "SplitForRecognition_rgwux",
+        "port": "out"
+      },
+      "tgt": {
         "process": "CalculateDistance_g0t6q",
         "port": "destination"
       },
@@ -386,19 +399,6 @@
       "tgt": {
         "process": "SplitForRecognition_rgwux",
         "port": "in"
-      },
-      "metadata": {
-        "route": 2
-      }
-    },
-    {
-      "src": {
-        "process": "SplitForRecognition_rgwux",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "HoldCoordinates_7cosq",
-        "port": "data"
       },
       "metadata": {
         "route": 2

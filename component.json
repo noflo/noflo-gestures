@@ -25,6 +25,7 @@
     "graphs/ListenGestures.json",
     "graphs/ListenPointer.json",
     "graphs/ListenSwipe.json",
+    "graphs/RecognizeCardinalGesture.json",
     "index.js"
   ],
   "json": [
@@ -32,6 +33,7 @@
     "graphs/ListenGestures.json",
     "graphs/ListenPointer.json",
     "graphs/ListenSwipe.json",
+    "graphs/RecognizeCardinalGesture.json",
     "component.json"
   ],
   "noflo": {
@@ -44,7 +46,8 @@
       "FilterByTarget": "graphs/FilterByTarget.json",
       "ListenGestures": "graphs/ListenGestures.json",
       "ListenPointer": "graphs/ListenPointer.json",
-      "ListenSwipe": "graphs/ListenSwipe.json"
+      "ListenSwipe": "graphs/ListenSwipe.json",
+      "RecognizeCardinalGesture": "graphs/RecognizeCardinalGesture.json"
     }
   }
 }

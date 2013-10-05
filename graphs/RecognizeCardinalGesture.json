@@ -1,0 +1,636 @@
+{
+  "properties": {
+    "name": "RecognizeCardinalGesture"
+  },
+  "exports": [
+    {
+      "private": "StartEventCoordinates_rc5pw.event",
+      "public": "started"
+    },
+    {
+      "private": "MoveEventCoordinates_iknb5.event",
+      "public": "moved"
+    },
+    {
+      "private": "AllowRecognize_9toik.open",
+      "public": "recognize"
+    },
+    {
+      "private": "SendEast_q82ex.out",
+      "public": "east"
+    },
+    {
+      "private": "SendSouth_9bok0.out",
+      "public": "south"
+    },
+    {
+      "private": "SendWest_2y30t.out",
+      "public": "west"
+    },
+    {
+      "private": "SendNorth_71bps.out",
+      "public": "north"
+    },
+    {
+      "private": "SendMoveCoordinates_gpv52.out",
+      "public": "moved"
+    },
+    {
+      "private": "CheckDistance_w7bjx.comparison",
+      "public": "distance"
+    }
+  ],
+  "processes": {
+    "StartEventCoordinates_rc5pw": {
+      "component": "interaction/ReadCoordinates",
+      "metadata": {
+        "x": -348,
+        "y": 431,
+        "label": "StartEventCoordinates"
+      }
+    },
+    "MoveEventCoordinates_iknb5": {
+      "component": "interaction/ReadCoordinates",
+      "metadata": {
+        "x": -348,
+        "y": 582,
+        "label": "MoveEventCoordinates"
+      }
+    },
+    "MoveCoordinates_6p0q": {
+      "component": "core/Split",
+      "metadata": {
+        "x": -142,
+        "y": 582,
+        "label": "MoveCoordinates"
+      }
+    },
+    "SendStartCoordinates_d2gh7": {
+      "component": "core/DisconnectAfterPacket",
+      "metadata": {
+        "x": 64,
+        "y": 580,
+        "label": "SendStartCoordinates"
+      }
+    },
+    "HoldStartCoordinates_yplcj": {
+      "component": "core/Kick",
+      "metadata": {
+        "x": 264,
+        "y": 430,
+        "label": "HoldStartCoordinates"
+      }
+    },
+    "AllowRecognize_9toik": {
+      "component": "flow/Gate",
+      "metadata": {
+        "x": 262.1666666666665,
+        "y": 746.8333333333334,
+        "label": "AllowRecognize"
+      }
+    },
+    "SplitStartCoordinates_yf4hh": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 447.1666666666665,
+        "y": 426.5,
+        "label": "SplitStartCoordinates"
+      }
+    },
+    "CalculateDistance_g0t6q": {
+      "component": "math/CalculateDistance",
+      "metadata": {
+        "x": 657.3333333333333,
+        "y": 563.8333333333334,
+        "label": "CalculateDistance"
+      }
+    },
+    "CheckDistance_w7bjx": {
+      "component": "math/Compare",
+      "metadata": {
+        "x": 849.6666666666665,
+        "y": 565.6666666666666,
+        "label": "CheckDistance"
+      }
+    },
+    "HoldCoordinates_7cosq": {
+      "component": "core/Kick",
+      "metadata": {
+        "x": 1264.4999999999995,
+        "y": 647.5,
+        "label": "HoldCoordinates"
+      }
+    },
+    "DistancePassed_ftnjf": {
+      "component": "core/DisconnectAfterPacket",
+      "metadata": {
+        "x": 1044.833333333333,
+        "y": 564.5,
+        "label": "DistancePassed"
+      }
+    },
+    "SplitForRecognition_rgwux": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 450.5,
+        "y": 746.6666666666666,
+        "label": "SplitForRecognition"
+      }
+    },
+    "GetGestureAngle_zsc1o": {
+      "component": "math/CalculateAngle",
+      "metadata": {
+        "x": 1493.166666666667,
+        "y": 529.5,
+        "label": "GetGestureAngle"
+      }
+    },
+    "GestureDirection_wonuj": {
+      "component": "gestures/CardinalRouter",
+      "metadata": {
+        "x": 1725.3333333333326,
+        "y": 530,
+        "label": "GestureDirection"
+      }
+    },
+    "SplitEast_hlpzd": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 2004.9999999999993,
+        "y": 456.1666666666667,
+        "label": "SplitEast"
+      }
+    },
+    "SplitSouth_3z668": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 2004.9999999999993,
+        "y": 540.1666666666667,
+        "label": "SplitSouth"
+      }
+    },
+    "SplitWest_penr4": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 2008.9999999999993,
+        "y": 627.1666666666667,
+        "label": "SplitWest"
+      }
+    },
+    "SplitNorth_7c1aj": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 2009.9999999999993,
+        "y": 721.1666666666667,
+        "label": "SplitNorth"
+      }
+    },
+    "Recognized_s3iw1": {
+      "component": "core/Merge",
+      "metadata": {
+        "x": 2234.999999999999,
+        "y": 803.1666666666667,
+        "label": "Recognized"
+      }
+    },
+    "SendEast_q82ex": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 2222.333333333333,
+        "y": 457,
+        "label": "SendEast"
+      }
+    },
+    "SendSouth_9bok0": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 2224.333333333333,
+        "y": 539,
+        "label": "SendSouth"
+      }
+    },
+    "SendWest_2y30t": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 2225.333333333333,
+        "y": 625,
+        "label": "SendWest"
+      }
+    },
+    "SendNorth_71bps": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 2229.333333333333,
+        "y": 718,
+        "label": "SendNorth"
+      }
+    },
+    "SendMoveCoordinates_gpv52": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 262.66666666666674,
+        "y": 878,
+        "label": "SendMoveCoordinates"
+      }
+    }
+  },
+  "connections": [
+    {
+      "src": {
+        "process": "MoveCoordinates_6p0q",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendStartCoordinates_d2gh7",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "SendStartCoordinates_d2gh7",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "HoldStartCoordinates_yplcj",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "StartEventCoordinates_rc5pw",
+        "port": "client"
+      },
+      "tgt": {
+        "process": "HoldStartCoordinates_yplcj",
+        "port": "data"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "MoveEventCoordinates_iknb5",
+        "port": "client"
+      },
+      "tgt": {
+        "process": "MoveCoordinates_6p0q",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "MoveCoordinates_6p0q",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "AllowRecognize_9toik",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "HoldStartCoordinates_yplcj",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SplitStartCoordinates_yf4hh",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "SplitStartCoordinates_yf4hh",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "CalculateDistance_g0t6q",
+        "port": "origin"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "CalculateDistance_g0t6q",
+        "port": "distance"
+      },
+      "tgt": {
+        "process": "CheckDistance_w7bjx",
+        "port": "value"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "CheckDistance_w7bjx",
+        "port": "pass"
+      },
+      "tgt": {
+        "process": "DistancePassed_ftnjf",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "DistancePassed_ftnjf",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "HoldCoordinates_7cosq",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitForRecognition_rgwux",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "CalculateDistance_g0t6q",
+        "port": "destination"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "AllowRecognize_9toik",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SplitForRecognition_rgwux",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "SplitForRecognition_rgwux",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "HoldCoordinates_7cosq",
+        "port": "data"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "HoldCoordinates_7cosq",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetGestureAngle_zsc1o",
+        "port": "destination"
+      },
+      "metadata": {
+        "route": 2
+      }
+    },
+    {
+      "src": {
+        "process": "SplitStartCoordinates_yf4hh",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetGestureAngle_zsc1o",
+        "port": "origin"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GetGestureAngle_zsc1o",
+        "port": "angle"
+      },
+      "tgt": {
+        "process": "GestureDirection_wonuj",
+        "port": "degrees"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "GestureDirection_wonuj",
+        "port": "e"
+      },
+      "tgt": {
+        "process": "SplitEast_hlpzd",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "GestureDirection_wonuj",
+        "port": "s"
+      },
+      "tgt": {
+        "process": "SplitSouth_3z668",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "GestureDirection_wonuj",
+        "port": "w"
+      },
+      "tgt": {
+        "process": "SplitWest_penr4",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "GestureDirection_wonuj",
+        "port": "n"
+      },
+      "tgt": {
+        "process": "SplitNorth_7c1aj",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitEast_hlpzd",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Recognized_s3iw1",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "SplitSouth_3z668",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Recognized_s3iw1",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "SplitWest_penr4",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Recognized_s3iw1",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "SplitNorth_7c1aj",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Recognized_s3iw1",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "Recognized_s3iw1",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "AllowRecognize_9toik",
+        "port": "close"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "SplitEast_hlpzd",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendEast_q82ex",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitSouth_3z668",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendSouth_9bok0",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitWest_penr4",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendWest_2y30t",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitNorth_7c1aj",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendNorth_71bps",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "MoveCoordinates_6p0q",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendMoveCoordinates_gpv52",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "data": ">=",
+      "tgt": {
+        "process": "CheckDistance_w7bjx",
+        "port": "operator"
+      }
+    }
+  ]
+}

@@ -21,11 +21,13 @@
     "components/DegreesToCardinal.coffee",
     "components/DegreesToCompass.coffee",
     "graphs/ListenGestures.json",
+    "graphs/ListenPointer.json",
     "graphs/ListenSwipe.json",
     "index.js"
   ],
   "json": [
     "graphs/ListenGestures.json",
+    "graphs/ListenPointer.json",
     "graphs/ListenSwipe.json",
     "component.json"
   ],
@@ -36,6 +38,7 @@
     },
     "graphs": {
       "ListenGestures": "graphs/ListenGestures.json",
+      "ListenPointer": "graphs/ListenPointer.json",
       "ListenSwipe": "graphs/ListenSwipe.json"
     }
   }

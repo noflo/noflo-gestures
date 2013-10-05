@@ -37,36 +37,12 @@
     }
   ],
   "processes": {
-    "ListenPointer_vkvx5": {
-      "component": "interaction/ListenPointer",
-      "metadata": {
-        "x": 210,
-        "y": 6,
-        "label": "ListenPointer"
-      }
-    },
-    "TrackMoveDuringGesture_5zitk": {
-      "component": "flow/Gate",
-      "metadata": {
-        "x": 464,
-        "y": 142,
-        "label": "TrackMoveDuringGesture"
-      }
-    },
     "GestureStart_r8vr5": {
       "component": "core/Split",
       "metadata": {
         "x": 466,
         "y": -31,
         "label": "GestureStart"
-      }
-    },
-    "GestureEnd_qmbj1": {
-      "component": "core/Merge",
-      "metadata": {
-        "x": 452,
-        "y": 395.5,
-        "label": "GestureEnd"
       }
     },
     "GetStartingPoint_pidfs": {
@@ -120,24 +96,24 @@
     "LastMove_p5yj7": {
       "component": "core/Kick",
       "metadata": {
-        "x": 1056,
-        "y": 140,
+        "x": 1062,
+        "y": 176,
         "label": "LastMove"
       }
     },
     "GestureEnd_qqx8o": {
       "component": "core/Split",
       "metadata": {
-        "x": 876,
-        "y": 380,
+        "x": 473,
+        "y": 180,
         "label": "GestureEnd"
       }
     },
     "GestureMove_hy46s": {
       "component": "core/Split",
       "metadata": {
-        "x": 686,
-        "y": 142,
+        "x": 463,
+        "y": 65,
         "label": "GestureMove"
       }
     },
@@ -145,15 +121,15 @@
       "component": "packets/UniquePacket",
       "metadata": {
         "x": 1364,
-        "y": 291,
+        "y": 1,
         "label": "AllTouchedElements"
       }
     },
     "objects/GetObjectKey_k1ap5": {
       "component": "objects/GetObjectKey",
       "metadata": {
-        "x": 1168,
-        "y": 286,
+        "x": 1059,
+        "y": 6,
         "label": "objects/GetObjectKey"
       }
     },
@@ -213,19 +189,11 @@
         "label": "SetStart"
       }
     },
-    "PreventDuplicateEndings_l3qnr": {
-      "component": "flow/Gate",
-      "metadata": {
-        "x": 669,
-        "y": 381,
-        "label": "PreventDuplicateEndings"
-      }
-    },
     "math/Divide_x4gc8": {
       "component": "math/Divide",
       "metadata": {
-        "x": 2746,
-        "y": -198,
+        "x": 2737,
+        "y": -194,
         "label": "math/Divide"
       }
     },
@@ -248,32 +216,32 @@
     "objects/CallMethod_iu7k2": {
       "component": "objects/CallMethod",
       "metadata": {
-        "x": 2356,
-        "y": 148,
+        "x": 2348,
+        "y": 167,
         "label": "objects/CallMethod"
       }
     },
     "objects/CallMethod_rtfd2": {
       "component": "objects/CallMethod",
       "metadata": {
-        "x": 2138,
-        "y": -295,
+        "x": 2139,
+        "y": -274,
         "label": "objects/CallMethod"
       }
     },
     "Distance_kwk39": {
       "component": "core/Repeat",
       "metadata": {
-        "x": 2343,
-        "y": 18,
+        "x": 2580,
+        "y": 20,
         "label": "Distance"
       }
     },
     "GestureElements_yvm9m": {
       "component": "core/Repeat",
       "metadata": {
-        "x": 1564,
-        "y": 291,
+        "x": 1558,
+        "y": 0,
         "label": "GestureElements"
       }
     },
@@ -308,63 +276,19 @@
         "y": -192,
         "label": "StartPoint"
       }
+    },
+    "gestures/ListenPointer_8ftd1": {
+      "component": "gestures/ListenPointer",
+      "metadata": {
+        "x": 214,
+        "y": -1,
+        "label": "gestures/ListenPointer"
+      }
     }
   },
   "connections": [
     {
       "src": {
-        "process": "ListenPointer_vkvx5",
-        "port": "down"
-      },
-      "tgt": {
-        "process": "GestureStart_r8vr5",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 5
-      }
-    },
-    {
-      "src": {
-        "process": "GestureStart_r8vr5",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "TrackMoveDuringGesture_5zitk",
-        "port": "open"
-      },
-      "metadata": {
-        "route": 0
-      }
-    },
-    {
-      "src": {
-        "process": "ListenPointer_vkvx5",
-        "port": "move"
-      },
-      "tgt": {
-        "process": "TrackMoveDuringGesture_5zitk",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 3
-      }
-    },
-    {
-      "src": {
-        "process": "ListenPointer_vkvx5",
-        "port": "cancel"
-      },
-      "tgt": {
-        "process": "GestureEnd_qmbj1",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 3
-      }
-    },
-    {
-      "src": {
         "process": "core/Split_4ds1h",
         "port": "out"
       },
@@ -413,19 +337,6 @@
       },
       "metadata": {
         "route": 1
-      }
-    },
-    {
-      "src": {
-        "process": "GestureEnd_qqx8o",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "TrackMoveDuringGesture_5zitk",
-        "port": "close"
-      },
-      "metadata": {
-        "route": 0
       }
     },
     {
@@ -456,19 +367,6 @@
     },
     {
       "src": {
-        "process": "TrackMoveDuringGesture_5zitk",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "GestureMove_hy46s",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 0
-      }
-    },
-    {
-      "src": {
         "process": "GestureMove_hy46s",
         "port": "out"
       },
@@ -477,7 +375,7 @@
         "port": "data"
       },
       "metadata": {
-        "route": 0
+        "route": 3
       }
     },
     {
@@ -503,7 +401,7 @@
         "port": "in"
       },
       "metadata": {
-        "route": 2
+        "route": 3
       }
     },
     {
@@ -516,7 +414,7 @@
         "port": "in"
       },
       "metadata": {
-        "route": 2
+        "route": 3
       }
     },
     {
@@ -529,7 +427,7 @@
         "port": "clear"
       },
       "metadata": {
-        "route": 0
+        "route": 1
       }
     },
     {
@@ -556,45 +454,6 @@
       },
       "metadata": {
         "route": 5
-      }
-    },
-    {
-      "src": {
-        "process": "GetGestureArea_h4opr",
-        "port": "element"
-      },
-      "tgt": {
-        "process": "ListenPointer_vkvx5",
-        "port": "element"
-      },
-      "metadata": {
-        "route": 3
-      }
-    },
-    {
-      "src": {
-        "process": "ListenPointer_vkvx5",
-        "port": "leave"
-      },
-      "tgt": {
-        "process": "GestureEnd_qmbj1",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 3
-      }
-    },
-    {
-      "src": {
-        "process": "ListenPointer_vkvx5",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "GestureEnd_qmbj1",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 3
       }
     },
     {
@@ -651,58 +510,6 @@
     },
     {
       "src": {
-        "process": "PreventDuplicateEndings_l3qnr",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "GestureEnd_qqx8o",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 1
-      }
-    },
-    {
-      "src": {
-        "process": "GestureEnd_qmbj1",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "PreventDuplicateEndings_l3qnr",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 1
-      }
-    },
-    {
-      "src": {
-        "process": "GestureStart_r8vr5",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "PreventDuplicateEndings_l3qnr",
-        "port": "open"
-      },
-      "metadata": {
-        "route": 0
-      }
-    },
-    {
-      "src": {
-        "process": "GestureEnd_qqx8o",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "PreventDuplicateEndings_l3qnr",
-        "port": "close"
-      },
-      "metadata": {
-        "route": 0
-      }
-    },
-    {
-      "src": {
         "process": "math/Divide_x4gc8",
         "port": "quotient"
       },
@@ -737,7 +544,7 @@
         "port": "in"
       },
       "metadata": {
-        "route": 8
+        "route": 9
       }
     },
     {
@@ -751,19 +558,6 @@
       },
       "metadata": {
         "route": 9
-      }
-    },
-    {
-      "src": {
-        "process": "ListenPointer_vkvx5",
-        "port": "up"
-      },
-      "tgt": {
-        "process": "GestureEnd_qmbj1",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 1
       }
     },
     {
@@ -867,7 +661,7 @@
         "port": "in"
       },
       "metadata": {
-        "route": 0
+        "route": 9
       }
     },
     {
@@ -880,7 +674,7 @@
         "port": "in"
       },
       "metadata": {
-        "route": 0
+        "route": 3
       }
     },
     {
@@ -906,7 +700,7 @@
         "port": "in"
       },
       "metadata": {
-        "route": 0
+        "route": 9
       }
     },
     {
@@ -929,6 +723,58 @@
       },
       "tgt": {
         "process": "StartPoint_u8int",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GetGestureArea_h4opr",
+        "port": "element"
+      },
+      "tgt": {
+        "process": "gestures/ListenPointer_8ftd1",
+        "port": "element"
+      },
+      "metadata": {
+        "route": 7
+      }
+    },
+    {
+      "src": {
+        "process": "gestures/ListenPointer_8ftd1",
+        "port": "end"
+      },
+      "tgt": {
+        "process": "GestureEnd_qqx8o",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "gestures/ListenPointer_8ftd1",
+        "port": "move"
+      },
+      "tgt": {
+        "process": "GestureMove_hy46s",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 3
+      }
+    },
+    {
+      "src": {
+        "process": "gestures/ListenPointer_8ftd1",
+        "port": "start"
+      },
+      "tgt": {
+        "process": "GestureStart_r8vr5",
         "port": "in"
       },
       "metadata": {

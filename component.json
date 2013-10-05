@@ -18,6 +18,7 @@
     "noflo/noflo-core": "*"
   },
   "scripts": [
+    "components/CardinalRouter.coffee",
     "components/DegreesToCardinal.coffee",
     "components/DegreesToCompass.coffee",
     "graphs/ListenGestures.json",
@@ -33,6 +34,7 @@
   ],
   "noflo": {
     "components": {
+      "CardinalRouter": "components/CardinalRouter.coffee",
       "DegreesToCardinal": "components/DegreesToCardinal.coffee",
       "DegreesToCompass": "components/DegreesToCompass.coffee"
     },

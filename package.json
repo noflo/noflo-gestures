@@ -18,6 +18,13 @@
   ],
   "dependencies": {
   },
+  "noflo": {
+    "components": {
+      "CardinalRouter": "components/CardinalRouter.coffee",
+      "DegreesToCardinal": "components/DegreesToCardinal.coffee",
+      "DegreesToCompass": "components/DegreesToCompass.coffee"
+    }
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-coffee": "~0.6.6",

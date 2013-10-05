@@ -21,12 +21,14 @@
     "components/CardinalRouter.coffee",
     "components/DegreesToCardinal.coffee",
     "components/DegreesToCompass.coffee",
+    "graphs/FilterByTarget.json",
     "graphs/ListenGestures.json",
     "graphs/ListenPointer.json",
     "graphs/ListenSwipe.json",
     "index.js"
   ],
   "json": [
+    "graphs/FilterByTarget.json",
     "graphs/ListenGestures.json",
     "graphs/ListenPointer.json",
     "graphs/ListenSwipe.json",
@@ -39,6 +41,7 @@
       "DegreesToCompass": "components/DegreesToCompass.coffee"
     },
     "graphs": {
+      "FilterByTarget": "graphs/FilterByTarget.json",
       "ListenGestures": "graphs/ListenGestures.json",
       "ListenPointer": "graphs/ListenPointer.json",
       "ListenSwipe": "graphs/ListenSwipe.json"

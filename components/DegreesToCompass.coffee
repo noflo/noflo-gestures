@@ -2,7 +2,7 @@ noflo = require 'noflo'
 
 class DegreesToCompass extends noflo.Component
   description: 'Convert a heading in degrees to a compass direction, e.g. N, SW'
-
+  icon: 'compass'
   constructor: ->
     @inPorts =
       degrees: new noflo.Port 'number'

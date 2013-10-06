@@ -2,7 +2,7 @@ noflo = require 'noflo'
 
 class DegreesToCardinal extends noflo.Component
   description: 'Convert a heading in degrees to a cardinal direction, e.g. N, S'
-
+  icon: 'compass'
   constructor: ->
     @inPorts =
       degrees: new noflo.Port 'number'

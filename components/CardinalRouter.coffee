@@ -2,6 +2,7 @@ noflo = require 'noflo'
 
 class CardinalRouter extends noflo.Component
   description: 'Route values based on their cardinal directions'
+  icon: 'compass'
   constructor: ->
     @inPorts =
       degrees: new noflo.Port 'number'

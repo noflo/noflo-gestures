@@ -15,6 +15,10 @@
       "public": "element"
     },
     {
+      "private": "movepoint_fjlur.out",
+      "public": "movepoint"
+    },
+    {
       "private": "distance_kwk39.out",
       "public": "distance"
     },
@@ -37,6 +41,10 @@
     {
       "private": "startpoint_u8int.out",
       "public": "startpoint"
+    },
+    {
+      "private": "getendelement_slbp9.out",
+      "public": "end"
     },
     {
       "private": "gesturestart_r8vr5.out",

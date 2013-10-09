@@ -55,7 +55,7 @@
       "public": "end"
     },
     {
-      "private": "gesturestart_r8vr5.out",
+      "private": "getendingpoint_dettb.client",
       "public": "endpoint"
     }
   ],
@@ -362,6 +362,14 @@
         "x": 2937.833333333333,
         "y": -295.83333333333326,
         "label": "Duration"
+      }
+    },
+    "GetEndingPoint_dettb": {
+      "component": "interaction/ReadCoordinates",
+      "metadata": {
+        "x": 727.8333333333331,
+        "y": 335.3333333333333,
+        "label": "GetEndingPoint"
       }
     }
   },
@@ -988,6 +996,19 @@
       },
       "metadata": {
         "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "GestureEnd_qqx8o",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetEndingPoint_dettb",
+        "port": "event"
+      },
+      "metadata": {
+        "route": 1
       }
     },
     {

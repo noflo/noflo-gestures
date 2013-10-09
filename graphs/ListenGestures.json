@@ -19,14 +19,6 @@
       "public": "movepoint"
     },
     {
-      "private": "currentelement_cu0q5.out",
-      "public": "current"
-    },
-    {
-      "private": "duration_qyevv.out",
-      "public": "duration"
-    },
-    {
       "private": "distance_kwk39.out",
       "public": "distance"
     },
@@ -57,6 +49,14 @@
     {
       "private": "getendingpoint_dettb.client",
       "public": "endpoint"
+    },
+    {
+      "private": "currentelement_cu0q5.out",
+      "public": "current"
+    },
+    {
+      "private": "duration_qyevv.out",
+      "public": "duration"
     }
   ],
   "processes": {
@@ -159,8 +159,8 @@
     "GetStartElement_w7m64": {
       "component": "objects/GetObjectKey",
       "metadata": {
-        "x": 769,
-        "y": -44.66666666666666,
+        "x": 968,
+        "y": -404.66666666666663,
         "label": "GetStartElement"
       }
     },
@@ -175,8 +175,8 @@
     "StartDate_swbwu": {
       "component": "objects/CreateDate",
       "metadata": {
-        "x": 1936,
-        "y": -271,
+        "x": 968,
+        "y": -281,
         "label": "StartDate"
       }
     },
@@ -191,8 +191,8 @@
     "SetStart_ql51c": {
       "component": "strings/SendString",
       "metadata": {
-        "x": 768,
-        "y": -310,
+        "x": 765,
+        "y": -284,
         "label": "SetStart"
       }
     },
@@ -271,8 +271,8 @@
     "StartPoint_u8int": {
       "component": "core/Repeat",
       "metadata": {
-        "x": 1242,
-        "y": -192,
+        "x": 1382,
+        "y": -189,
         "label": "StartPoint"
       }
     },
@@ -311,8 +311,8 @@
     "groups/SendByGroup_z06kk": {
       "component": "groups/SendByGroup",
       "metadata": {
-        "x": 560,
-        "y": -154.66666666666669,
+        "x": 556,
+        "y": -151.66666666666669,
         "label": "groups/SendByGroup"
       }
     },
@@ -351,8 +351,8 @@
     "CurrentElement_cu0q5": {
       "component": "core/Repeat",
       "metadata": {
-        "x": 1470.833333333333,
-        "y": -194.00000000000006,
+        "x": 1599.833333333333,
+        "y": -192.00000000000006,
         "label": "CurrentElement"
       }
     },
@@ -370,6 +370,46 @@
         "x": 727.8333333333331,
         "y": 335.3333333333333,
         "label": "GetEndingPoint"
+      }
+    },
+    "core/Merge_6so": {
+      "component": "core/Merge",
+      "metadata": {
+        "x": 1196.666666666667,
+        "y": -188.99999999999983,
+        "label": "core/Merge"
+      }
+    },
+    "interaction/ReadCoordinates_82cb1": {
+      "component": "interaction/ReadCoordinates",
+      "metadata": {
+        "x": 767.3333333333339,
+        "y": -85.83333333333314,
+        "label": "interaction/ReadCoordinates"
+      }
+    },
+    "core/Drop_sa8z5": {
+      "component": "core/Drop",
+      "metadata": {
+        "x": 1596.833333333333,
+        "y": 326.0000000000001,
+        "label": "core/Drop"
+      }
+    },
+    "core/Merge_lqxll": {
+      "component": "core/Merge",
+      "metadata": {
+        "x": 768.9999999999995,
+        "y": -403.66666666666663,
+        "label": "core/Merge"
+      }
+    },
+    "groups/SendByGroup_8yaj": {
+      "component": "groups/SendByGroup",
+      "metadata": {
+        "x": 1166.999999999999,
+        "y": -286.83333333333326,
+        "label": "groups/SendByGroup"
       }
     }
   },
@@ -454,19 +494,6 @@
     },
     {
       "src": {
-        "process": "GestureStart_r8vr5",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "GetStartElement_w7m64",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 5
-      }
-    },
-    {
-      "src": {
         "process": "SetStart_ql51c",
         "port": "out"
       },
@@ -532,32 +559,6 @@
     },
     {
       "src": {
-        "process": "objects/CallMethod_rtfd2",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "math/Subtract_j5v20",
-        "port": "subtrahend"
-      },
-      "metadata": {
-        "route": 5
-      }
-    },
-    {
-      "src": {
-        "process": "StartDate_swbwu",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "objects/CallMethod_rtfd2",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 5
-      }
-    },
-    {
-      "src": {
         "process": "core/Split_x0a12",
         "port": "out"
       },
@@ -593,19 +594,6 @@
       },
       "metadata": {
         "route": 3
-      }
-    },
-    {
-      "src": {
-        "process": "core/Split_4ds1h",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "StartPoint_u8int",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 5
       }
     },
     {
@@ -727,19 +715,6 @@
     },
     {
       "src": {
-        "process": "groups/SendByGroup_z06kk",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "SetStart_ql51c",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 5
-      }
-    },
-    {
-      "src": {
         "process": "GestureStart_r8vr5",
         "port": "out"
       },
@@ -774,7 +749,7 @@
         "port": "data"
       },
       "metadata": {
-        "route": 0
+        "route": 3
       }
     },
     {
@@ -787,7 +762,7 @@
         "port": "in"
       },
       "metadata": {
-        "route": 0
+        "route": 3
       }
     },
     {
@@ -1009,6 +984,175 @@
       },
       "metadata": {
         "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "objects/CallMethod_rtfd2",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "math/Subtract_j5v20",
+        "port": "subtrahend"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_4ds1h",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "core/Merge_6so",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "core/Merge_6so",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "StartPoint_u8int",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "interaction/ReadCoordinates_82cb1",
+        "port": "client"
+      },
+      "tgt": {
+        "process": "core/Merge_6so",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GestureStart_r8vr5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "interaction/ReadCoordinates_82cb1",
+        "port": "event"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GetEndElement_slbp9",
+        "port": "missed"
+      },
+      "tgt": {
+        "process": "core/Drop_sa8z5",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GestureStart_r8vr5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "core/Merge_lqxll",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "core/Merge_lqxll",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetStartElement_w7m64",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "groups/SendByGroup_z06kk",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "core/Merge_lqxll",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "groups/SendByGroup_8yaj",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "objects/CallMethod_rtfd2",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "StartDate_swbwu",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "groups/SendByGroup_8yaj",
+        "port": "data"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GestureStart_r8vr5",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SetStart_ql51c",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GestureMove_hy46s",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "groups/SendByGroup_8yaj",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 3
       }
     },
     {

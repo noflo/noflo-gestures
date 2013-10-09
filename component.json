@@ -11,6 +11,7 @@
     "noflo/noflo-interaction": "*",
     "noflo/noflo-math": "*",
     "noflo/noflo-flow": "*",
+    "noflo/noflo-groups": "*",
     "noflo/noflo-packets": "*",
     "noflo/noflo-objects": "*",
     "noflo/noflo-dom": "*",

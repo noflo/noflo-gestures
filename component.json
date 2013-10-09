@@ -21,18 +21,14 @@
     "components/CardinalRouter.coffee",
     "components/DegreesToCardinal.coffee",
     "components/DegreesToCompass.coffee",
-    "graphs/FilterByTarget.json",
-    "graphs/ListenGestures.json",
-    "graphs/ListenPointer.json",
-    "graphs/ListenSwipe.json",
-    "graphs/RecognizeCardinalGesture.json",
     "index.js"
   ],
   "json": [
+    "graphs/DetectSwipe.json",
+    "graphs/DetectPinch.json",
     "graphs/FilterByTarget.json",
     "graphs/ListenGestures.json",
     "graphs/ListenPointer.json",
-    "graphs/ListenSwipe.json",
     "graphs/RecognizeCardinalGesture.json",
     "component.json"
   ],
@@ -44,10 +40,11 @@
       "DegreesToCompass": "components/DegreesToCompass.coffee"
     },
     "graphs": {
+      "DetectSwipe": "graphs/DetectSwipe.json",
+      "DetectPinch": "graphs/DetectPinch.json",
       "FilterByTarget": "graphs/FilterByTarget.json",
       "ListenGestures": "graphs/ListenGestures.json",
       "ListenPointer": "graphs/ListenPointer.json",
-      "ListenSwipe": "graphs/ListenSwipe.json",
       "RecognizeCardinalGesture": "graphs/RecognizeCardinalGesture.json"
     }
   }

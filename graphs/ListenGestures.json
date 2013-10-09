@@ -19,6 +19,14 @@
       "public": "movepoint"
     },
     {
+      "private": "currentelement_cu0q5.out",
+      "public": "current"
+    },
+    {
+      "private": "duration_qyevv.out",
+      "public": "duration"
+    },
+    {
       "private": "distance_kwk39.out",
       "public": "distance"
     },
@@ -135,8 +143,8 @@
     "AllTouchedElements_i3x74": {
       "component": "packets/UniquePacket",
       "metadata": {
-        "x": 1364,
-        "y": 1,
+        "x": 1445,
+        "y": 6,
         "label": "AllTouchedElements"
       }
     },
@@ -231,8 +239,8 @@
     "GestureElements_yvm9m": {
       "component": "core/Repeat",
       "metadata": {
-        "x": 1558,
-        "y": 0,
+        "x": 1639,
+        "y": 4,
         "label": "GestureElements"
       }
     },
@@ -331,6 +339,30 @@
         "y": -171.83333333333258,
         "label": "core/Split"
       }
+    },
+    "core/Split_8l3yu": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 1251.3333333333333,
+        "y": 7.166666666666629,
+        "label": "core/Split"
+      }
+    },
+    "CurrentElement_cu0q5": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 1470.833333333333,
+        "y": -194.00000000000006,
+        "label": "CurrentElement"
+      }
+    },
+    "Duration_qyevv": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 2937.833333333333,
+        "y": -295.83333333333326,
+        "label": "Duration"
+      }
     }
   },
   "connections": [
@@ -393,19 +425,6 @@
       },
       "tgt": {
         "process": "core/Split_baeeb",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 3
-      }
-    },
-    {
-      "src": {
-        "process": "GetMoveElement_iaexm",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "AllTouchedElements_i3x74",
         "port": "in"
       },
       "metadata": {
@@ -917,6 +936,58 @@
       },
       "metadata": {
         "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "GetMoveElement_iaexm",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "core/Split_8l3yu",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 3
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_8l3yu",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "AllTouchedElements_i3x74",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 3
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_8l3yu",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "CurrentElement_cu0q5",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 3
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_3elep",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Duration_qyevv",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
       }
     },
     {

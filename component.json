@@ -22,6 +22,12 @@
     "components/CardinalRouter.coffee",
     "components/DegreesToCardinal.coffee",
     "components/DegreesToCompass.coffee",
+    "graphs/DetectSwipe.json",
+    "graphs/DetectPinch.json",
+    "graphs/FilterByTarget.json",
+    "graphs/ListenGestures.json",
+    "graphs/ListenPointer.json",
+    "graphs/RecognizeCardinalGesture.json",
     "index.js"
   ],
   "json": [

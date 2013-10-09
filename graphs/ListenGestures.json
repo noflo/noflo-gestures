@@ -927,19 +927,6 @@
     },
     {
       "src": {
-        "process": "core/Split_3elep",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "math/Subtract_j5v20",
-        "port": "clear"
-      },
-      "metadata": {
-        "route": 0
-      }
-    },
-    {
-      "src": {
         "process": "GetMoveElement_iaexm",
         "port": "out"
       },
@@ -988,6 +975,19 @@
       },
       "metadata": {
         "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_3elep",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "math/Subtract_j5v20",
+        "port": "clear"
+      },
+      "metadata": {
+        "route": 0
       }
     },
     {

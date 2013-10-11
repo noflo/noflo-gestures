@@ -11,6 +11,7 @@ class DetectTarget extends noflo.Component
     @outPorts =
       pass: new noflo.Port 'object'
       fail: new noflo.Port 'object'
+      target: new noflo.Port 'object'
 
     @inPorts.target.on 'data', (data) ->
       parts = data.split '='
@@ -28,16 +29,22 @@ class DetectTarget extends noflo.Component
             passed = false
         if passed
           @outPorts.pass.send data
+          if @outPorts.target.isAttached()
+            @outPorts.target.send data[Object.keys(data)[0].target]
         else
           @outPorts.fail.send data
         return
       if @detectTarget data[Object.keys(data)[0]]
         @outPorts.pass.send data
+        if @outPorts.target.isAttached()
+          @outPorts.target.send data[Object.keys(data)[0].targe]
       else
         @outPorts.fail.send data
     @inPorts.in.on 'disconnect', =>
       @outPorts.pass.disconnect()
       @outPorts.fail.disconnect()
+      if @outPorts.target.isAttached()
+        @outPorts.target.disconnect()
 
   detectTarget: (element) ->
     for key, value of @target

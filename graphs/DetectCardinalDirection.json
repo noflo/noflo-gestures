@@ -1,0 +1,373 @@
+{
+  "properties": {
+    "environment": {
+      "runtime": "html",
+      "src": "./preview/iframe.html",
+      "width": "300",
+      "height": "300",
+      "content": ""
+    },
+    "name": "DetectCardinalDirection"
+  },
+  "exports": [
+    {
+      "private": "receivegesture_thbmw.in",
+      "public": "in"
+    },
+    {
+      "private": "sendeast_218qx.out",
+      "public": "east"
+    },
+    {
+      "private": "sendsouth_wx2b5.out",
+      "public": "south"
+    },
+    {
+      "private": "sendwest_rkdz9.out",
+      "public": "west"
+    },
+    {
+      "private": "sendnorth_c562k.out",
+      "public": "north"
+    },
+    {
+      "private": "fail_5b0qo.out",
+      "public": "fail"
+    }
+  ],
+  "processes": {
+    "ReceiveGesture_thbmw": {
+      "component": "core/Repeat",
+      "metadata": {
+        "x": 608,
+        "y": 121,
+        "label": "ReceiveGesture"
+      }
+    },
+    "SplitGesture_dkk87": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 606,
+        "y": 201,
+        "label": "SplitGesture"
+      }
+    },
+    "SendNorth_c562k": {
+      "component": "strings/SendString",
+      "metadata": {
+        "x": 1733,
+        "y": 447,
+        "label": "SendNorth"
+      }
+    },
+    "SendEast_218qx": {
+      "component": "strings/SendString",
+      "metadata": {
+        "x": 1721,
+        "y": -5,
+        "label": "SendEast"
+      }
+    },
+    "RouteDirection_apgsp": {
+      "component": "gestures/CardinalRouter",
+      "metadata": {
+        "x": 1469,
+        "y": 195,
+        "label": "RouteDirection"
+      }
+    },
+    "GetIndividualPointer_ozjfa": {
+      "component": "objects/SplitObject",
+      "metadata": {
+        "x": 816,
+        "y": 201,
+        "label": "GetIndividualPointer"
+      }
+    },
+    "GetStartPoint_bhrl2": {
+      "component": "objects/GetObjectKey",
+      "metadata": {
+        "x": 1021,
+        "y": 158,
+        "label": "GetStartPoint"
+      }
+    },
+    "GetCurrentPoint_rwwt0": {
+      "component": "objects/GetObjectKey",
+      "metadata": {
+        "x": 1019,
+        "y": 260,
+        "label": "GetCurrentPoint"
+      }
+    },
+    "GetGestureAngle_djpr6": {
+      "component": "math/CalculateAngle",
+      "metadata": {
+        "x": 1266,
+        "y": 195,
+        "label": "GetGestureAngle"
+      }
+    },
+    "SendWest_rkdz9": {
+      "component": "strings/SendString",
+      "metadata": {
+        "x": 1730.8333333333333,
+        "y": 348.33333333333337,
+        "label": "SendWest"
+      }
+    },
+    "SendSouth_wx2b5": {
+      "component": "strings/SendString",
+      "metadata": {
+        "x": 1721.8333333333333,
+        "y": 107.33333333333337,
+        "label": "SendSouth"
+      }
+    },
+    "Fail_5b0qo": {
+      "component": "core/Merge",
+      "metadata": {
+        "x": 1732.1666666666665,
+        "y": 574,
+        "label": "Fail"
+      }
+    }
+  },
+  "connections": [
+    {
+      "src": {
+        "process": "GetIndividualPointer_ozjfa",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetStartPoint_bhrl2",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "GetStartPoint_bhrl2",
+        "port": "object"
+      },
+      "tgt": {
+        "process": "GetCurrentPoint_rwwt0",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "GetStartPoint_bhrl2",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetGestureAngle_djpr6",
+        "port": "origin"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "GetCurrentPoint_rwwt0",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetGestureAngle_djpr6",
+        "port": "destination"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitGesture_dkk87",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendEast_218qx",
+        "port": "string"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitGesture_dkk87",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendWest_rkdz9",
+        "port": "string"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitGesture_dkk87",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendNorth_c562k",
+        "port": "string"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitGesture_dkk87",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendSouth_wx2b5",
+        "port": "string"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "GetGestureAngle_djpr6",
+        "port": "angle"
+      },
+      "tgt": {
+        "process": "RouteDirection_apgsp",
+        "port": "degrees"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "RouteDirection_apgsp",
+        "port": "n"
+      },
+      "tgt": {
+        "process": "SendNorth_c562k",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 4
+      }
+    },
+    {
+      "src": {
+        "process": "RouteDirection_apgsp",
+        "port": "w"
+      },
+      "tgt": {
+        "process": "SendWest_rkdz9",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "RouteDirection_apgsp",
+        "port": "s"
+      },
+      "tgt": {
+        "process": "SendSouth_wx2b5",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 6
+      }
+    },
+    {
+      "src": {
+        "process": "RouteDirection_apgsp",
+        "port": "e"
+      },
+      "tgt": {
+        "process": "SendEast_218qx",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 7
+      }
+    },
+    {
+      "src": {
+        "process": "ReceiveGesture_thbmw",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SplitGesture_dkk87",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitGesture_dkk87",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetIndividualPointer_ozjfa",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "GetCurrentPoint_rwwt0",
+        "port": "missed"
+      },
+      "tgt": {
+        "process": "Fail_5b0qo",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GetStartPoint_bhrl2",
+        "port": "missed"
+      },
+      "tgt": {
+        "process": "Fail_5b0qo",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "data": "startpoint",
+      "tgt": {
+        "process": "GetStartPoint_bhrl2",
+        "port": "key"
+      }
+    },
+    {
+      "data": "movepoint",
+      "tgt": {
+        "process": "GetCurrentPoint_rwwt0",
+        "port": "key"
+      }
+    }
+  ]
+}

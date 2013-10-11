@@ -30,7 +30,7 @@
     "graphs/GestureToObject.json",
     "graphs/ListenGestures.json",
     "graphs/ListenPointer.json",
-    "graphs/RecognizeCardinalGesture.json",
+    "graphs/DetectCardinalDirection.json",
     "index.js"
   ],
   "json": [
@@ -41,7 +41,7 @@
     "graphs/GestureToObject.json",
     "graphs/ListenGestures.json",
     "graphs/ListenPointer.json",
-    "graphs/RecognizeCardinalGesture.json",
+    "graphs/DetectCardinalDirection.json",
     "component.json"
   ],
   "noflo": {
@@ -60,7 +60,7 @@
       "GestureToObject": "graphs/GestureToObject.json",
       "ListenGestures": "graphs/ListenGestures.json",
       "ListenPointer": "graphs/ListenPointer.json",
-      "RecognizeCardinalGesture": "graphs/RecognizeCardinalGesture.json"
+      "DetectCardinalDirection": "graphs/DetectCardinalDirection.json"
     }
   }
 }

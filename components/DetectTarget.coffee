@@ -29,14 +29,14 @@ class DetectTarget extends noflo.Component
             passed = false
         if passed
           if @outPorts.target.isAttached()
-            @outPorts.target.send data[Object.keys(data)[0].target]
+            @outPorts.target.send data[Object.keys(data)[0]].current
           @outPorts.pass.send data
         else
           @outPorts.fail.send data
         return
       if @detectTarget data[Object.keys(data)[0]]
         if @outPorts.target.isAttached()
-          @outPorts.target.send data[Object.keys(data)[0].targe]
+          @outPorts.target.send data[Object.keys(data)[0]].current
         @outPorts.pass.send data
       else
         @outPorts.fail.send data

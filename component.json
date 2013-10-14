@@ -19,6 +19,8 @@
     "noflo/noflo-core": "*"
   },
   "scripts": [
+    "components/CalculateCenter.coffee",
+    "components/CalculateScale.coffee",
     "components/CardinalRouter.coffee",
     "components/DegreesToCardinal.coffee",
     "components/DegreesToCompass.coffee",
@@ -47,6 +49,8 @@
   "noflo": {
     "icon": "hand-right",
     "components": {
+      "CalculateCenter": "components/CalculateCenter.coffee",
+      "CalculateScale": "components/CalculateScale.coffee",
       "CardinalRouter": "components/CardinalRouter.coffee",
       "DegreesToCardinal": "components/DegreesToCardinal.coffee",
       "DegreesToCompass": "components/DegreesToCompass.coffee",

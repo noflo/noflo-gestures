@@ -39,16 +39,16 @@
     "ReceiveGesture_thbmw": {
       "component": "core/Repeat",
       "metadata": {
-        "x": 608,
-        "y": 121,
+        "x": 466,
+        "y": 120,
         "label": "ReceiveGesture"
       }
     },
     "SplitGesture_dkk87": {
       "component": "core/Split",
       "metadata": {
-        "x": 606,
-        "y": 201,
+        "x": 464,
+        "y": 200,
         "label": "SplitGesture"
       }
     },
@@ -79,32 +79,32 @@
     "GetIndividualPointer_ozjfa": {
       "component": "objects/SplitObject",
       "metadata": {
-        "x": 816,
-        "y": 201,
+        "x": 674,
+        "y": 200,
         "label": "GetIndividualPointer"
       }
     },
     "GetStartPoint_bhrl2": {
       "component": "objects/GetObjectKey",
       "metadata": {
-        "x": 1021,
-        "y": 158,
+        "x": 879,
+        "y": 157,
         "label": "GetStartPoint"
       }
     },
     "GetCurrentPoint_rwwt0": {
       "component": "objects/GetObjectKey",
       "metadata": {
-        "x": 1019,
-        "y": 260,
+        "x": 877,
+        "y": 259,
         "label": "GetCurrentPoint"
       }
     },
     "GetGestureAngle_djpr6": {
       "component": "math/CalculateAngle",
       "metadata": {
-        "x": 1266,
-        "y": 195,
+        "x": 1083,
+        "y": 193,
         "label": "GetGestureAngle"
       }
     },
@@ -130,6 +130,14 @@
         "x": 1732.1666666666665,
         "y": 574,
         "label": "Fail"
+      }
+    },
+    "core/Split_n3qif": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 1276.999999999999,
+        "y": 193.66666666666669,
+        "label": "core/Split"
       }
     }
   },
@@ -240,19 +248,6 @@
     },
     {
       "src": {
-        "process": "GetGestureAngle_djpr6",
-        "port": "angle"
-      },
-      "tgt": {
-        "process": "RouteDirection_apgsp",
-        "port": "degrees"
-      },
-      "metadata": {
-        "route": 9
-      }
-    },
-    {
-      "src": {
         "process": "RouteDirection_apgsp",
         "port": "n"
       },
@@ -353,6 +348,45 @@
       },
       "metadata": {
         "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GetGestureAngle_djpr6",
+        "port": "angle"
+      },
+      "tgt": {
+        "process": "core/Split_n3qif",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_n3qif",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "RouteDirection_apgsp",
+        "port": "degrees"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "core/Split_n3qif",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetGestureAngle_djpr6",
+        "port": "clear"
+      },
+      "metadata": {
+        "route": 0
       }
     },
     {

@@ -15,7 +15,7 @@
       "public": "in"
     },
     {
-      "private": "checkdistance_uzpv9.comparison",
+      "private": "checkmindistance_zsyhq.comparison",
       "public": "distance"
     },
     {
@@ -25,22 +25,26 @@
     {
       "private": "sendfail_64mm2.out",
       "public": "fail"
+    },
+    {
+      "private": "checkmaxspeed_sojti.comparison",
+      "public": "maxspeed"
     }
   ],
   "processes": {
     "ReceiveGesture_3bwyo": {
       "component": "core/Repeat",
       "metadata": {
-        "x": 314,
-        "y": 83,
+        "x": -605,
+        "y": 82,
         "label": "ReceiveGesture"
       }
     },
     "core/Split_qfhom": {
       "component": "core/Split",
       "metadata": {
-        "x": 314,
-        "y": 160,
+        "x": -605,
+        "y": 159,
         "label": "core/Split"
       }
     },
@@ -71,25 +75,65 @@
     "GetDistance_bjx0s": {
       "component": "objects/GetObjectKey",
       "metadata": {
-        "x": 697,
-        "y": 159,
+        "x": 526,
+        "y": 161,
         "label": "GetDistance"
       }
     },
-    "CheckDistance_uzpv9": {
+    "CheckMinDistance_zsyhq": {
       "component": "math/Compare",
       "metadata": {
-        "x": 884,
-        "y": 159,
-        "label": "CheckDistance"
+        "x": 900,
+        "y": 160,
+        "label": "CheckMinDistance"
       }
     },
     "GetIndividualPointer_hv93t": {
       "component": "objects/SplitObject",
       "metadata": {
-        "x": 509,
-        "y": 162,
+        "x": -410,
+        "y": 159,
         "label": "GetIndividualPointer"
+      }
+    },
+    "SplitDistance_vreyf": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 711.9999999999998,
+        "y": 160,
+        "label": "SplitDistance"
+      }
+    },
+    "SplitPointer_8rn9q": {
+      "component": "core/Split",
+      "metadata": {
+        "x": -223.5000000000008,
+        "y": 159.16666666666666,
+        "label": "SplitPointer"
+      }
+    },
+    "SendPointer_b4unv": {
+      "component": "strings/SendString",
+      "metadata": {
+        "x": 340.3333333333328,
+        "y": 160.16666666666669,
+        "label": "SendPointer"
+      }
+    },
+    "GetSpeed_o56fp": {
+      "component": "objects/GetObjectKey",
+      "metadata": {
+        "x": -40.49999999999977,
+        "y": 159,
+        "label": "GetSpeed"
+      }
+    },
+    "CheckMaxSpeed_sojti": {
+      "component": "math/Compare",
+      "metadata": {
+        "x": 150.50000000000023,
+        "y": 161,
+        "label": "CheckMaxSpeed"
       }
     }
   },
@@ -161,38 +205,12 @@
     },
     {
       "src": {
-        "process": "CheckDistance_uzpv9",
+        "process": "CheckMinDistance_zsyhq",
         "port": "fail"
       },
       "tgt": {
         "process": "Failures_13q8s",
         "port": "in"
-      },
-      "metadata": {
-        "route": 1
-      }
-    },
-    {
-      "src": {
-        "process": "CheckDistance_uzpv9",
-        "port": "pass"
-      },
-      "tgt": {
-        "process": "SendPass_lskxq",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 5
-      }
-    },
-    {
-      "src": {
-        "process": "GetDistance_bjx0s",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "CheckDistance_uzpv9",
-        "port": "value"
       },
       "metadata": {
         "route": 1
@@ -213,7 +231,59 @@
     },
     {
       "src": {
+        "process": "GetDistance_bjx0s",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SplitDistance_vreyf",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitDistance_vreyf",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "CheckMinDistance_zsyhq",
+        "port": "value"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
         "process": "GetIndividualPointer_hv93t",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SplitPointer_8rn9q",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 8
+      }
+    },
+    {
+      "src": {
+        "process": "CheckMinDistance_zsyhq",
+        "port": "pass"
+      },
+      "tgt": {
+        "process": "SendPass_lskxq",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "SendPointer_b4unv",
         "port": "out"
       },
       "tgt": {
@@ -222,6 +292,84 @@
       },
       "metadata": {
         "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitPointer_8rn9q",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendPointer_b4unv",
+        "port": "string"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "CheckMaxSpeed_sojti",
+        "port": "pass"
+      },
+      "tgt": {
+        "process": "SendPointer_b4unv",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 5
+      }
+    },
+    {
+      "src": {
+        "process": "GetSpeed_o56fp",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "CheckMaxSpeed_sojti",
+        "port": "value"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitPointer_8rn9q",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetSpeed_o56fp",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 8
+      }
+    },
+    {
+      "src": {
+        "process": "GetSpeed_o56fp",
+        "port": "missed"
+      },
+      "tgt": {
+        "process": "Failures_13q8s",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "CheckMaxSpeed_sojti",
+        "port": "fail"
+      },
+      "tgt": {
+        "process": "Failures_13q8s",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
       }
     },
     {
@@ -234,8 +382,22 @@
     {
       "data": ">=",
       "tgt": {
-        "process": "CheckDistance_uzpv9",
+        "process": "CheckMinDistance_zsyhq",
         "port": "operator"
+      }
+    },
+    {
+      "data": "<=",
+      "tgt": {
+        "process": "CheckMaxSpeed_sojti",
+        "port": "operator"
+      }
+    },
+    {
+      "data": "speed",
+      "tgt": {
+        "process": "GetSpeed_o56fp",
+        "port": "key"
       }
     }
   ]

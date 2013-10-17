@@ -33,22 +33,26 @@
     {
       "private": "fail_5b0qo.out",
       "public": "fail"
+    },
+    {
+      "private": "checkmaxdistance_cebq5.comparison",
+      "public": "maxdistance"
     }
   ],
   "processes": {
     "ReceiveGesture_thbmw": {
       "component": "core/Repeat",
       "metadata": {
-        "x": 466,
-        "y": 120,
+        "x": -294,
+        "y": 134,
         "label": "ReceiveGesture"
       }
     },
     "SplitGesture_dkk87": {
       "component": "core/Split",
       "metadata": {
-        "x": 464,
-        "y": 200,
+        "x": -296,
+        "y": 214,
         "label": "SplitGesture"
       }
     },
@@ -79,8 +83,8 @@
     "GetIndividualPointer_ozjfa": {
       "component": "objects/SplitObject",
       "metadata": {
-        "x": 674,
-        "y": 200,
+        "x": -86,
+        "y": 214,
         "label": "GetIndividualPointer"
       }
     },
@@ -127,8 +131,8 @@
     "Fail_5b0qo": {
       "component": "core/Merge",
       "metadata": {
-        "x": 1732.1666666666665,
-        "y": 574,
+        "x": 1738.1666666666665,
+        "y": 564,
         "label": "Fail"
       }
     },
@@ -139,22 +143,41 @@
         "y": 193.66666666666669,
         "label": "core/Split"
       }
+    },
+    "GetDistance_owyyb": {
+      "component": "objects/GetObjectKey",
+      "metadata": {
+        "x": 304,
+        "y": 216,
+        "label": "GetDistance"
+      }
+    },
+    "CheckMaxDistance_cebq5": {
+      "component": "math/Compare",
+      "metadata": {
+        "x": 499,
+        "y": 214,
+        "label": "CheckMaxDistance"
+      }
+    },
+    "SendPointer_v0eqv": {
+      "component": "strings/SendString",
+      "metadata": {
+        "x": 688,
+        "y": 214,
+        "label": "SendPointer"
+      }
+    },
+    "SplitPointer_v0u8k": {
+      "component": "core/Split",
+      "metadata": {
+        "x": 109.00000000000006,
+        "y": 215.33333333333331,
+        "label": "SplitPointer"
+      }
     }
   },
   "connections": [
-    {
-      "src": {
-        "process": "GetIndividualPointer_ozjfa",
-        "port": "out"
-      },
-      "tgt": {
-        "process": "GetStartPoint_bhrl2",
-        "port": "in"
-      },
-      "metadata": {
-        "route": 9
-      }
-    },
     {
       "src": {
         "process": "GetStartPoint_bhrl2",
@@ -390,6 +413,110 @@
       }
     },
     {
+      "src": {
+        "process": "GetIndividualPointer_ozjfa",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SplitPointer_v0u8k",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SplitPointer_v0u8k",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "SendPointer_v0eqv",
+        "port": "string"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "SendPointer_v0eqv",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetStartPoint_bhrl2",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "CheckMaxDistance_cebq5",
+        "port": "pass"
+      },
+      "tgt": {
+        "process": "SendPointer_v0eqv",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
+      "src": {
+        "process": "CheckMaxDistance_cebq5",
+        "port": "fail"
+      },
+      "tgt": {
+        "process": "Fail_5b0qo",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "GetDistance_owyyb",
+        "port": "missed"
+      },
+      "tgt": {
+        "process": "Fail_5b0qo",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 1
+      }
+    },
+    {
+      "src": {
+        "process": "SplitPointer_v0u8k",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "GetDistance_owyyb",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "GetDistance_owyyb",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "CheckMaxDistance_cebq5",
+        "port": "value"
+      },
+      "metadata": {
+        "route": 9
+      }
+    },
+    {
       "data": "startpoint",
       "tgt": {
         "process": "GetStartPoint_bhrl2",
@@ -401,6 +528,20 @@
       "tgt": {
         "process": "GetCurrentPoint_rwwt0",
         "port": "key"
+      }
+    },
+    {
+      "data": "distance",
+      "tgt": {
+        "process": "GetDistance_owyyb",
+        "port": "key"
+      }
+    },
+    {
+      "data": "<=",
+      "tgt": {
+        "process": "CheckMaxDistance_cebq5",
+        "port": "operator"
       }
     }
   ]

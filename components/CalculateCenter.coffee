@@ -20,6 +20,7 @@ class CalculateCenter extends noflo.Component
     startX = []
     startY = []
     for id, touch of gesture
+      continue unless touch
       continue unless touch.startpoint
       startX.push touch.startpoint.x
       startY.push touch.startpoint.y

@@ -4,8 +4,7 @@
   "author": "Henri Bergius <henri.bergius@iki.fi>",
   "repo": "noflo/noflo-gestures",
   "version": "0.1.0",
-  "keywords": [
-  ],
+  "keywords": [],
   "dependencies": {
     "noflo/noflo": "*",
     "noflo/noflo-interaction": "*",
@@ -24,6 +23,7 @@
     "components/CardinalRouter.coffee",
     "components/DegreesToCardinal.coffee",
     "components/DegreesToCompass.coffee",
+    "components/DetectScratch.coffee",
     "components/DetectTarget.coffee",
     "graphs/DetectDrag.json",
     "graphs/DetectSwipe.json",
@@ -54,6 +54,7 @@
       "CardinalRouter": "components/CardinalRouter.coffee",
       "DegreesToCardinal": "components/DegreesToCardinal.coffee",
       "DegreesToCompass": "components/DegreesToCompass.coffee",
+      "DetectScratch": "components/DetectScratch.coffee",
       "DetectTarget": "components/DetectTarget.coffee"
     },
     "graphs": {

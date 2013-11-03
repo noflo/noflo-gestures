@@ -59,9 +59,9 @@ class DetectScratch extends noflo.Component
       return
 
     turn = Math.abs @angleChange @prevAngle, angle
-    return unless turn > 130
     @prevPoint = touch.movepoint
     @prevAngle = angle
+    return unless turn > 130
     @prevTime = time
     @turns++
     if @turns >= @minturns

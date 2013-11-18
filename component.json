@@ -47,7 +47,7 @@
     "component.json"
   ],
   "noflo": {
-    "icon": "hand-right",
+    "icon": "hand-o-right",
     "components": {
       "CalculateCenter": "components/CalculateCenter.coffee",
       "CalculateScale": "components/CalculateScale.coffee",

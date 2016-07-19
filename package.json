@@ -16,8 +16,7 @@
       "url": "undefined/blob/master/LICENSE-MIT"
     }
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "noflo": {
     "icon": "hand-right",
     "components": {
@@ -34,7 +33,7 @@
     "mocha": "~1.9.0",
     "grunt-mocha-phantomjs": "~0.2.2",
     "grunt-component-build": "~0.2.7",
-    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-uglify": "~1.0.2",
     "grunt-contrib-watch": "~0.3.1",
     "component-json": "~0.1.4",
     "grunt-combine": "~0.8.3",

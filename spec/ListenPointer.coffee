@@ -12,15 +12,21 @@ describe 'ListenPointer subgraph', ->
     loader.load 'gestures/ListenPointer', (err, instance) ->
       return done err if err
       c = instance
-      element = noflo.internalSocket.createSocket()
-      start = noflo.internalSocket.createSocket()
-      move = noflo.internalSocket.createSocket()
-      end = noflo.internalSocket.createSocket()
-      c.inPorts.element.attach element
-      c.outPorts.start.attach start
-      c.outPorts.move.attach move
-      c.outPorts.end.attach end
-      done()
+      c.once 'ready', ->
+        c.network.on 'process-error', (err) ->
+          setTimeout () ->
+            throw err
+          , 0
+        element = noflo.internalSocket.createSocket()
+        start = noflo.internalSocket.createSocket()
+        move = noflo.internalSocket.createSocket()
+        end = noflo.internalSocket.createSocket()
+        c.inPorts.element.attach element
+        c.outPorts.start.attach start
+        c.outPorts.move.attach move
+        c.outPorts.end.attach end
+        c.start()
+        done()
 
   describe 'on down', ->
     it 'should transmit a start event', (done) ->

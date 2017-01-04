@@ -41,6 +41,8 @@ describe 'DetectTarget component', ->
       pass.once 'data', (data) ->
         chai.expect(data).to.eql expected
         done()
+      fail.once 'data', (data) ->
+        done new Error "Expected pass, got #{JSON.stringify(data)}"
       target.send 'foo=bar'
       ins.send expected
 
@@ -50,9 +52,11 @@ describe 'DetectTarget component', ->
         1:
           start:
             foo: 'bar'
-      pass.once 'data', (data) ->
+      fail.once 'data', (data) ->
         chai.expect(data).to.eql expected
         done()
+      pass.once 'data', (data) ->
+        done new Error "Expected fail, got #{JSON.stringify(data)}"
 
       target.send 'foo=baz'
       ins.send expected
@@ -69,6 +73,8 @@ describe 'DetectTarget component', ->
       pass.once 'data', (data) ->
         chai.expect(data).to.eql expected
         done()
+      fail.once 'data', (data) ->
+        done new Error "Expected pass, got #{JSON.stringify(data)}"
       target.send 'foo=bar'
       ins.send expected
 
@@ -81,9 +87,11 @@ describe 'DetectTarget component', ->
         3:
           start:
             foo: 'bar'
-      pass.once 'data', (data) ->
+      fail.once 'data', (data) ->
         chai.expect(data).to.eql expected
         done()
+      pass.once 'data', (data) ->
+        done new Error "Expected fail, got #{JSON.stringify(data)}"
 
       target.send 'foo=baz'
       ins.send expected

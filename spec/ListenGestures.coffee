@@ -35,6 +35,10 @@ describe 'ListenGestures subgraph', ->
       c = instance
       element = noflo.internalSocket.createSocket()
       c.once 'ready', ->
+        c.network.on 'process-error', (err) ->
+          setTimeout () ->
+            throw err
+          , 0
         outPorts.forEach (port) ->
           socket = noflo.internalSocket.createSocket()
           c.outPorts[port].attach socket
@@ -43,6 +47,7 @@ describe 'ListenGestures subgraph', ->
               data[port] = []
             data[port].push d
         c.inPorts.element.attach element
+        c.start()
         done()
   createEvent = (target, type, details) ->
     evt = document.createEvent 'UIEvent'

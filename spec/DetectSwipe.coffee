@@ -9,7 +9,8 @@ describe 'DetectSwipe subgraph', ->
   fail = null
   beforeEach (done) ->
     loader = new noflo.ComponentLoader '/noflo-gestures'
-    loader.load 'gestures/DetectSwipe', (instance) ->
+    loader.load 'gestures/DetectSwipe', (err, instance) ->
+      return done err if err
       c = instance
       ins = noflo.internalSocket.createSocket()
       speed = noflo.internalSocket.createSocket()

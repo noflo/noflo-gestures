@@ -9,7 +9,8 @@ describe 'ListenPointer subgraph', ->
   el = document.querySelector 'body'
   before (done) ->
     loader = new noflo.ComponentLoader '/noflo-gestures'
-    loader.load 'gestures/ListenPointer', (instance) ->
+    loader.load 'gestures/ListenPointer', (err, instance) ->
+      return done err if err
       c = instance
       element = noflo.internalSocket.createSocket()
       start = noflo.internalSocket.createSocket()
@@ -61,4 +62,5 @@ describe 'ListenPointer subgraph', ->
       el.dispatchEvent evt
 
   after ->
+    return unless c
     c.shutdown()

@@ -30,7 +30,8 @@ describe 'ListenGestures subgraph', ->
   before (done) ->
     data = {}
     loader = new noflo.ComponentLoader '/noflo-gestures'
-    loader.load 'gestures/ListenGestures', (instance) ->
+    loader.load 'gestures/ListenGestures', (err, instance) ->
+      return done err if err
       c = instance
       element = noflo.internalSocket.createSocket()
       c.once 'ready', ->
@@ -140,4 +141,5 @@ describe 'ListenGestures subgraph', ->
         , 0
 
   after ->
+    return unless c
     c.shutdown()

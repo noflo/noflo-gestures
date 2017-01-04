@@ -9,19 +9,26 @@ describe 'DetectSwipe subgraph', ->
   fail = null
   beforeEach (done) ->
     loader = new noflo.ComponentLoader '/noflo-gestures'
-    loader.load 'gestures/DetectSwipe', (instance) ->
+    loader.load 'gestures/DetectSwipe', (err, instance) ->
+      return done err if err
       c = instance
-      ins = noflo.internalSocket.createSocket()
-      speed = noflo.internalSocket.createSocket()
-      distance = noflo.internalSocket.createSocket()
-      pass = noflo.internalSocket.createSocket()
-      fail = noflo.internalSocket.createSocket()
-      c.inPorts.in.attach ins
-      c.inPorts.speed.attach speed
-      c.inPorts.distance.attach distance
-      c.outPorts.pass.attach pass
-      c.outPorts.fail.attach fail
-      done()
+      c.once 'ready', ->
+        c.network.on 'process-error', (err) ->
+          setTimeout () ->
+            throw err.error or err
+          , 0
+        ins = noflo.internalSocket.createSocket()
+        speed = noflo.internalSocket.createSocket()
+        distance = noflo.internalSocket.createSocket()
+        pass = noflo.internalSocket.createSocket()
+        fail = noflo.internalSocket.createSocket()
+        c.inPorts.in.attach ins
+        c.inPorts.speed.attach speed
+        c.inPorts.distance.attach distance
+        c.outPorts.pass.attach pass
+        c.outPorts.fail.attach fail
+        c.start()
+        done()
 
   describe 'with a valid swipe', ->
     it 'should pass', (done) ->
@@ -33,6 +40,8 @@ describe 'DetectSwipe subgraph', ->
       pass.on 'data', (data) ->
         chai.expect(data).to.eql expected
         done()
+      fail.once 'data', (data) ->
+        done new Error "Expected pass, got #{JSON.stringify(data)}"
 
       speed.send 2
       distance.send 40

@@ -15,11 +15,17 @@
     <div id="fixtures"></div>
 
     <!-- Polyfills -->
-    <script src="http://www.polymer-project.org/polymer-all/PointerEvents/pointerevents.js"></script>
+    <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
+
     <script src="../browser/noflo-gestures.js"></script>
-    <script src="http://chaijs.com/chai.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
     <script src="../node_modules/mocha/mocha.js"></script>
-    <script>mocha.setup('bdd');</script>
+    <script>
+      if (window.initMochaPhantomJS) {
+        window.initMochaPhantomJS();
+      }
+      mocha.setup('bdd');
+    </script>
     <script src="./DegreesToCompass.js"></script>
     <script src="./DegreesToCardinal.js"></script>
     <script src="./DetectTarget.js"></script>
@@ -27,12 +33,7 @@
     <script src="./ListenPointer.js"></script>
     <script src="./ListenGestures.js"></script>
     <script>
-      if (window.mochaPhantomJS) {
-        mochaPhantomJS.run();
-      } else {
-        mocha.checkLeaks();
-        mocha.run();
-      }
+      mocha.run();
     </script>
   </body>
 </html>

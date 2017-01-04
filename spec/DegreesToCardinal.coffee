@@ -1,20 +1,29 @@
 noflo = require 'noflo'
-if typeof process is 'object' and process.title is 'node'
-  chai = require 'chai' unless chai
-  DegreesToCardinal = require '../components/DegreesToCardinal.coffee'
+unless noflo.isBrowser()
+  chai = require 'chai'
+  path = require 'path'
+  baseDir = path.resolve __dirname, '../'
 else
-  DegreesToCardinal = require 'noflo-gestures/components/DegreesToCardinal.js'
+  baseDir = 'noflo-gestures'
 
 describe 'DegreesToCardinal component', ->
   c = null
   degrees = null
   heading = null
+  before (done) ->
+    @timeout 4000
+    loader = new noflo.ComponentLoader baseDir
+    loader.load 'gestures/DegreesToCardinal', (err, instance) ->
+      return done err if err
+      c = instance
+      degrees = noflo.internalSocket.createSocket()
+      c.inPorts.degrees.attach degrees
+      done()
   beforeEach ->
-    c = DegreesToCardinal.getComponent()
-    degrees = noflo.internalSocket.createSocket()
     heading = noflo.internalSocket.createSocket()
-    c.inPorts.degrees.attach degrees
     c.outPorts.heading.attach heading
+  afterEach ->
+    c.outPorts.heading.detach heading
 
   describe 'calculating compass headings', ->
     it 'should return E for 90', (done) ->

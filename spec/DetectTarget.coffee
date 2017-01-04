@@ -1,26 +1,39 @@
 noflo = require 'noflo'
-if typeof process is 'object' and process.title is 'node'
-  chai = require 'chai' unless chai
-  DetectTarget = require '../components/DetectTarget.coffee'
+unless noflo.isBrowser()
+  chai = require 'chai'
+  path = require 'path'
+  baseDir = path.resolve __dirname, '../'
 else
-  DetectTarget = require 'noflo-gestures/components/DetectTarget.js'
+  baseDir = 'noflo-gestures'
 
 describe 'DetectTarget component', ->
   c = null
   ins = null
+  key = null
   target = null
   pass = null
   fail = null
+  before (done) ->
+    @timeout 4000
+    loader = new noflo.ComponentLoader baseDir
+    loader.load 'gestures/DetectTarget', (err, instance) ->
+      return done err if err
+      c = instance
+      ins = noflo.internalSocket.createSocket()
+      key = noflo.internalSocket.createSocket()
+      target = noflo.internalSocket.createSocket()
+      c.inPorts.in.attach ins
+      c.inPorts.key.attach key
+      c.inPorts.target.attach target
+      done()
   beforeEach ->
-    c = DetectTarget.getComponent()
-    ins = noflo.internalSocket.createSocket()
-    target = noflo.internalSocket.createSocket()
     pass = noflo.internalSocket.createSocket()
     fail = noflo.internalSocket.createSocket()
-    c.inPorts.in.attach ins
-    c.inPorts.target.attach target
     c.outPorts.pass.attach pass
     c.outPorts.fail.attach fail
+  afterEach ->
+    c.outPorts.pass.detach pass
+    c.outPorts.fail.detach fail
 
   describe 'checking event with the right target', ->
     it 'should pass', (done) ->
@@ -31,6 +44,9 @@ describe 'DetectTarget component', ->
       pass.once 'data', (data) ->
         chai.expect(data).to.eql expected
         done()
+      fail.once 'data', (data) ->
+        done new Error "Expected pass, got #{JSON.stringify(data)}"
+      key.send 'start'
       target.send 'foo=bar'
       ins.send expected
 
@@ -40,9 +56,11 @@ describe 'DetectTarget component', ->
         1:
           start:
             foo: 'bar'
-      pass.once 'data', (data) ->
+      fail.once 'data', (data) ->
         chai.expect(data).to.eql expected
         done()
+      pass.once 'data', (data) ->
+        done new Error "Expected fail, got #{JSON.stringify(data)}"
 
       target.send 'foo=baz'
       ins.send expected
@@ -59,6 +77,8 @@ describe 'DetectTarget component', ->
       pass.once 'data', (data) ->
         chai.expect(data).to.eql expected
         done()
+      fail.once 'data', (data) ->
+        done new Error "Expected pass, got #{JSON.stringify(data)}"
       target.send 'foo=bar'
       ins.send expected
 
@@ -71,9 +91,11 @@ describe 'DetectTarget component', ->
         3:
           start:
             foo: 'bar'
-      pass.once 'data', (data) ->
+      fail.once 'data', (data) ->
         chai.expect(data).to.eql expected
         done()
+      pass.once 'data', (data) ->
+        done new Error "Expected fail, got #{JSON.stringify(data)}"
 
       target.send 'foo=baz'
       ins.send expected

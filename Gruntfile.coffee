@@ -14,33 +14,11 @@ module.exports = ->
         dest: 'spec'
         ext: '.js'
 
-    # Browser version building
-    component:
-      install:
-        options:
-          action: 'install'
-    component_build:
-      'noflo-gestures':
-        output: './browser/'
-        config: './component.json'
-        scripts: true
-        styles: false
-        plugins: ['coffee']
-        configure: (builder) ->
-          # Enable Component plugins
-          json = require 'component-json'
-          builder.use json()
-
-    # Fix broken Component aliases, as mentioned in
-    # https://github.com/anthonyshort/component-coffee/issues/3
-    combine:
-      browser:
-        input: 'browser/noflo-gestures.js'
-        output: 'browser/noflo-gestures.js'
-        tokens: [
-          token: '.coffee'
-          string: '.js'
-        ]
+    # Browser build of NoFlo
+    noflo_browser:
+      build:
+        files:
+          'browser/noflo-gestures.js': ['component.json']
 
     # JavaScript minification for the browser
     uglify:
@@ -59,7 +37,8 @@ module.exports = ->
     mocha_phantomjs:
       options:
         output: 'spec/result.xml'
-        reporter: 'dot'
+        reporter: 'spec'
+        failWithOutput: true
       all: ['spec/runner.html']
 
     # Coding standards

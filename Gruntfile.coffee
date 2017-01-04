@@ -47,9 +47,7 @@ module.exports = ->
 
   # Grunt plugins used for building
   @loadNpmTasks 'grunt-contrib-coffee'
-  @loadNpmTasks 'grunt-component'
-  @loadNpmTasks 'grunt-component-build'
-  @loadNpmTasks 'grunt-combine'
+  @loadNpmTasks 'grunt-noflo-browser'
   @loadNpmTasks 'grunt-contrib-uglify'
 
   # Grunt plugins used for testing
@@ -60,17 +58,13 @@ module.exports = ->
   # Our local tasks
   @registerTask 'build', 'Build NoFlo for the chosen target platform', (target = 'all') =>
     @task.run 'coffee'
-    @task.run 'component'
-    @task.run 'component_build'
-    @task.run 'combine'
+    @task.run 'noflo_browser'
     @task.run 'uglify'
 
   @registerTask 'test', 'Build NoFlo and run automated tests', (target = 'all') =>
     @task.run 'coffeelint'
     @task.run 'coffee'
-    @task.run 'component'
-    @task.run 'component_build'
-    @task.run 'combine'
+    @task.run 'noflo_browser'
     @task.run 'mocha_phantomjs'
 
   @registerTask 'default', ['test']

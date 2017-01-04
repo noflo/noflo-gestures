@@ -9,6 +9,7 @@ else
 describe 'DetectTarget component', ->
   c = null
   ins = null
+  key = null
   target = null
   pass = null
   fail = null
@@ -19,8 +20,10 @@ describe 'DetectTarget component', ->
       return done err if err
       c = instance
       ins = noflo.internalSocket.createSocket()
+      key = noflo.internalSocket.createSocket()
       target = noflo.internalSocket.createSocket()
       c.inPorts.in.attach ins
+      c.inPorts.key.attach key
       c.inPorts.target.attach target
       done()
   beforeEach ->
@@ -43,6 +46,7 @@ describe 'DetectTarget component', ->
         done()
       fail.once 'data', (data) ->
         done new Error "Expected pass, got #{JSON.stringify(data)}"
+      key.send 'start'
       target.send 'foo=bar'
       ins.send expected
 

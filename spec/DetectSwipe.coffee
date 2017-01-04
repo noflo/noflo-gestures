@@ -15,7 +15,7 @@ describe 'DetectSwipe subgraph', ->
       c.once 'ready', ->
         c.network.on 'process-error', (err) ->
           setTimeout () ->
-            throw err
+            throw err.error or err
           , 0
         ins = noflo.internalSocket.createSocket()
         speed = noflo.internalSocket.createSocket()

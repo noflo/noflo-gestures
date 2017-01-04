@@ -37,7 +37,7 @@ describe 'ListenGestures subgraph', ->
       c.once 'ready', ->
         c.network.on 'process-error', (err) ->
           setTimeout () ->
-            throw err
+            throw err.error or err
           , 0
         outPorts.forEach (port) ->
           socket = noflo.internalSocket.createSocket()
@@ -49,6 +49,9 @@ describe 'ListenGestures subgraph', ->
         c.inPorts.element.attach element
         c.start()
         done()
+  after ->
+    return unless c
+    c.shutdown()
   createEvent = (target, type, details) ->
     evt = document.createEvent 'UIEvent'
     evt.initUIEvent type, true, true, window, 1
@@ -60,7 +63,7 @@ describe 'ListenGestures subgraph', ->
     el = document.querySelector 'body'
     it 'should transmit the start element and start point', (done) ->
       element.send el
-      createEvent el, 'mousedown',
+      createEvent el, 'pointerdown',
         clientX: 10
         clientY: 10
       setTimeout ->
@@ -77,7 +80,7 @@ describe 'ListenGestures subgraph', ->
     it 'should transmit a move event', (done) ->
       data = {}
       element.send el
-      createEvent el, 'mousemove',
+      createEvent el, 'pointermove',
         clientX: 10
         clientY: 20
       setTimeout ->
@@ -108,7 +111,7 @@ describe 'ListenGestures subgraph', ->
       it 'should transmit a move event', (done) ->
         data = {}
         element.send el
-        createEvent el, 'mousemove',
+        createEvent el, 'pointermove',
           clientX: 30
           clientY: 10
         setTimeout ->
@@ -133,7 +136,7 @@ describe 'ListenGestures subgraph', ->
       it 'should transmit an end event', (done) ->
         data = {}
         element.send el
-        createEvent el, 'mouseup',
+        createEvent el, 'pointerup',
           clientX: 20
           clientY: 10
         setTimeout ->
@@ -144,7 +147,3 @@ describe 'ListenGestures subgraph', ->
             y: 10
           done()
         , 0
-
-  after ->
-    return unless c
-    c.shutdown()

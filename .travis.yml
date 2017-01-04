@@ -1,5 +1,13 @@
 language: node_js
 node_js:
-  - '4.6'
+- '4.6'
 before_script:
-  - npm install -g grunt-cli
+- npm install -g grunt-cli
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: F1gnWU+J98CCWROHW2YGfQLhn0v25LEzIZZJA6OveC1jYfrqhuQ8yJNGcDyL0h6/D7kT+NPdm2K1pFxM+j7KBce70Ssz2IEoEUfXfremItJ7LLbofjkY3/Jwz5SB3bCVsvnGsCgdM7V3G+aKI1scfHUXYcI7WzLWaljESggIXEU=
+  on:
+    tags: true
+    repo: noflo/noflo-gestures

@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "noflo": "0.x >= 0.5",
+    "noflo": "0.8.0",
     "noflo-core": "^0.2.3",
     "noflo-flow": "^0.4.0",
     "noflo-groups": "^0.1.12",

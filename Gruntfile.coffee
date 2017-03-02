@@ -18,7 +18,7 @@ module.exports = ->
     noflo_browser:
       build:
         files:
-          'browser/noflo-gestures.js': ['component.json']
+          'browser/noflo-gestures.js': ['package.json']
 
     # JavaScript minification for the browser
     uglify:

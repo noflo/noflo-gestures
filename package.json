@@ -23,12 +23,7 @@
     "noflo-strings": "^0.2.0"
   },
   "noflo": {
-    "icon": "hand-right",
-    "components": {
-      "CardinalRouter": "components/CardinalRouter.coffee",
-      "DegreesToCardinal": "components/DegreesToCardinal.coffee",
-      "DegreesToCompass": "components/DegreesToCompass.coffee"
-    }
+    "icon": "hand-right"
   },
   "devDependencies": {
     "chai": "~3.5.0",

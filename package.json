@@ -20,7 +20,7 @@
     "noflo-math": "0.0.9",
     "noflo-objects": "^0.2.0",
     "noflo-packets": "^0.1.8",
-    "noflo-strings": "^0.2.0"
+    "noflo-strings": "^0.3.0"
   },
   "noflo": {
     "icon": "hand-right",

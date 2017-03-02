@@ -27,8 +27,7 @@ describe 'DetectSwipe subgraph', ->
         c.inPorts.distance.attach distance
         c.outPorts.pass.attach pass
         c.outPorts.fail.attach fail
-        c.start()
-        done()
+        c.start done
 
   describe 'with a valid swipe', ->
     it 'should pass', (done) ->

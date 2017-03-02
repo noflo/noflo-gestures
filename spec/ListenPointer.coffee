@@ -26,11 +26,10 @@ describe 'ListenPointer subgraph', ->
         c.outPorts.start.attach start
         c.outPorts.move.attach move
         c.outPorts.end.attach end
-        c.start()
-        done()
-  after ->
-    return unless c
-    c.shutdown()
+        c.start done
+  after (done) ->
+    return done() unless c
+    c.shutdown done
 
   describe 'on down', ->
     it 'should transmit a start event', (done) ->

@@ -47,11 +47,10 @@ describe 'ListenGestures subgraph', ->
               data[port] = []
             data[port].push d
         c.inPorts.element.attach element
-        c.start()
-        done()
-  after ->
-    return unless c
-    c.shutdown()
+        c.start done
+  after (done) ->
+    return done() unless c
+    c.shutdown done
   createEvent = (target, type, details) ->
     evt = document.createEvent 'UIEvent'
     evt.initUIEvent type, true, true, window, 1

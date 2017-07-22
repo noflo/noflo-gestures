@@ -41,7 +41,7 @@
     "grunt-contrib-watch": "~1.0.0",
     "grunt-mocha-phantomjs": "~4.0.0",
     "grunt-noflo-browser": "^1.0.2",
-    "json-loader": "^0.5.4",
+    "json-loader": "^0.5.7",
     "mocha": "~3.2.0"
   },
   "keywords": [

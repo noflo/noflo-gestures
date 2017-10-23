@@ -17,7 +17,7 @@
     "noflo-flow": "^0.4.0",
     "noflo-groups": "^0.1.12",
     "noflo-interaction": "^0.1.0",
-    "noflo-math": "0.0.9",
+    "noflo-math": "0.2.0",
     "noflo-objects": "^0.2.0",
     "noflo-packets": "^0.1.8",
     "noflo-strings": "^0.2.0"
